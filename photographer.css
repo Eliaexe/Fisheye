@@ -1,0 +1,235 @@
+@import url(https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap);
+body {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+html {
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+/* BANNER */
+
+banner {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+banner img {
+    width: 10rem;
+}
+
+
+/* HEADER */
+
+header {
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+header img {
+    width: 12.5rem;
+}
+
+@media (min-width: 900px) {
+    header {
+        margin-left: 2rem;
+    }
+}
+
+
+/* HEADER PH PROFIL */
+
+.ph-city {
+    color: #901c1c;
+    font-size: .9em;
+    margin: 0;
+}
+
+.ph-infos h2 {
+    color: #D3573C;
+    font-size: 2.4em;
+    font-weight: 400;
+    margin: 0;
+}
+
+.ph-profil {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ph-profil button {
+    background: #901c1c;
+    border: none;
+    border-radius: 5px;
+    bottom: 28px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    height: 35px;
+    position: fixed;
+    width: 170px;
+}
+
+.ph-profil button:hover {
+    background: #651414;
+    transform: scale(1.05);
+}
+
+.ph-profil img {
+    border-radius: 50%;
+    height: 100px;
+    object-fit: cover;
+    width: 100px;
+}
+
+.ph-tagline {
+    color: #525252;
+    font-size: .9em;
+    margin: 0;
+}
+
+.ph-tags {
+    border: .5px solid #C4C4C4;
+    border-radius: .6875rem;
+    color: #901C1C;
+    font-size: 12px;
+    margin: 0;
+    padding: .0625rem .375rem;
+    text-decoration: none;
+    transition: all .2s;
+}
+
+.ph-tags:hover {
+    background-color: #901C1C;
+    color: #fff;
+}
+
+@media (max-width: 1200px) {
+    .ph-profil button {
+        left: 0;
+        margin-left: auto;
+        margin-right: auto;
+        right: 0;
+        z-index: 1;
+    }
+}
+
+@media (min-width: 1200px) {
+    .ph-profil {
+        background-color: #FAFAFA;
+        margin: 0 20px;
+    }
+    .ph-profil button {
+        height: 55px;
+        left: 42rem;
+        position: absolute;
+        top: 9.8rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .ph-city {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+    .ph-infos h2 {
+        font-size: 50px;
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+    .ph-profil {
+        background: #fafafa;
+        padding: 2rem;
+    }
+    .ph-profil img {
+        height: 200px;
+        width: 200px;
+    }
+    .ph-tagline {
+        color: #525252;
+        font-size: 15px;
+        margin-bottom: 1rem;
+    }
+}
+
+
+/* PH WORKS MEDIAS */
+
+#ph-works {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 2.8125rem 0;
+    padding: 0 1.25rem;
+}
+
+.btn-like {
+    background: none;
+    border: none;
+    color: #901c1c;
+    font-size: 1.1rem;
+    margin-left: -.3rem;
+}
+
+.ph-work-elt {
+    color: #901c1c;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 0 0 .625rem;
+    width: 20.9375rem;
+}
+
+.ph-work-elt .fa-heart:hover,
+.ph-work-elt img:hover,
+.ph-work-elt video:hover {
+    cursor: pointer;
+}
+
+.ph-work-elt .ph-work-title {
+    width: 14.0625rem;
+}
+
+.ph-work-elt img,
+.ph-work-elt video {
+    border-radius: .3125rem;
+    height: 11.875rem;
+    object-fit: cover;
+    width: 20.9375rem;
+}
+
+.ph-work-elt-text {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+.ph-work-title {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+@media (min-width: 1300px) {
+    #ph-works {
+        justify-content: space-between;
+        margin: 2.8125rem 6.25rem;
+        padding: 0;
+    }
+    .ph-work-elt {
+        width: 21.875rem;
+    }
+    .ph-work-elt img,
+    .ph-work-elt video {
+        height: 18.75rem;
+        width: 21.875rem;
+    }
+}
