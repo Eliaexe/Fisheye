@@ -138,7 +138,7 @@ class postFactory {
 
     videoPost(element, photographer){
         let place = document.getElementById(element.id);
-        let video = `<video controls="controls" src="resources/img/${photographer}/${element.video}" role="button" class="ph-media"></video>`
+        let video = `<video controls="controls" src="resources/img/${photographer}/${element.video}" alt="${element.title}" role="button" class="ph-media"></video>`
         place.innerHTML = video
     }
 
@@ -233,9 +233,6 @@ class Carousel{
         let titlePlace = document.getElementById("works-lightbox-name")
         let close = document.getElementById("close");
         let back = document.getElementById("back")
-        /*let target = document.getElementById(e.getAttribute("id"))
-        let singleMedia = allItems[1].id
-        let mediaTwin = items.filter(e => e.id == allItems[1].id)*/
 
         for (let i = 0; i < page.length; i++){
             page[i].setAttribute('id', i) 
@@ -247,33 +244,41 @@ class Carousel{
 
             this.index = Number(e.getAttribute("id"))
             mediaPlace.innerHTML = ""
+            titlePlace.innerHTML = "";
+
                 mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
+                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
             })
         });
 
         back.addEventListener("click", () =>{
             this.index -= 1
-            console.log(this.index)
             mediaPlace.innerHTML = ""
-
+            titlePlace.innerHTML = "";
             if (this.index < 0){
                 this.index += page.length
                 mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
+                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
             } else {
-            mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
+                mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
+                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
             }
         })
+
         next.addEventListener("click", () =>{
             this.index += +1
-            console.log(this.index)
             mediaPlace.innerHTML = ""
-            console.log(page.length)
+            titlePlace.innerHTML = "";
 
-            if (this.index > page.length){
+            if (this.index > page.length - 1){
+                this.index -= page.length
                 mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
+                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
+
             } else {
-                this.index == 0
-                console.log(this.index)
+                mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
+                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
+
             }
 
         })
