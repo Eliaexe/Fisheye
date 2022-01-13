@@ -9,9 +9,9 @@ html {
 }
 
 
-/* BANNER */
+/* figure */
 
-banner {
+figure {
     align-items: center;
     display: flex;
     flex-wrap: nowrap;
@@ -20,7 +20,7 @@ banner {
     overflow: hidden;
 }
 
-banner img {
+figure img {
     width: 10rem;
 }
 
@@ -338,14 +338,14 @@ header img {
 
 .formData {
     display: flex;
-    flex-direction: column;
+    flex-figureection: column;
 }
 
 .formData[data-error]::after {
     color: #901c1c;
     content: attr(data-error);
     display: block;
-    flex-direction: column;
+    flex-figureection: column;
     font-size: 1em;
     line-height: 0.3;
     margin-bottom: 7px;
@@ -363,7 +363,7 @@ form {
     background: #db8876;
     border-radius: .3rem;
     display: flex;
-    flex-direction: column;
+    flex-figureection: column;
     padding: 1.5rem 2.2rem 2.2rem;
 }
 

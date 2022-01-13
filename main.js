@@ -16,14 +16,14 @@ class ApiFishEye {
 }
 
 // DISPLAY ALL PHOTOGRAPHERS BY DEFAULT
-class HomePageBuilder {
-    // Build the photographers section, call the 'filtertags' function and the 'passer au contenu' button
-    displayPhotographers(data) {
+class HomePage {
+    // Build the photographers section, call the 'tags' function and the 'passer au contenu' button
+    photographers(data) {
             let photographers = data.photographers;
             photographers.map(photographe => {
-                        let sectionPhotographers = document.getElementById('photographers');
-                        let articlePhotographers = document.createElement('article');
-                        articlePhotographers.className = photographe.tags.join(' ') + ' articlePh';
+                        let section = document.getElementById('photographers');
+                        let article = document.createElement('article');
+                        article.className = photographe.tags.join(' ') + ' card';
                         let templatePhotographer = `
             <a href="photographer.html?id=${photographe.id}" title="${photographe.name}">
                 <img src="resources/img/portrait/${photographe.portrait}" alt="${photographe.alt}">
@@ -36,20 +36,19 @@ class HomePageBuilder {
                 `<li data-filter="${tag}">#${tag}</li>`).join(" ")}</ul> 
             `
 
-            sectionPhotographers.appendChild(articlePhotographers);
-            articlePhotographers.innerHTML = templatePhotographer;
+            section.appendChild(article);
+            article.innerHTML = templatePhotographer;
         })
-        new Filter().filterTags();
-        new Scroll().scrollButton();
+        new Filter().tags();
     }
 }
 
 // FUNCTION FILTER TAGS
 class Filter {
     // FILTER TAGS
-    filterTags() {
+    tags() {
         let filtres = document.querySelector('ul');
-        let articles = document.querySelectorAll('.articlePh');
+        let articles = document.querySelectorAll('.card');
 
         // EVENT LISTENER ON CLICK LI
         filtres.addEventListener('click', event => {
@@ -61,12 +60,13 @@ class Filter {
                 event.target.classList.remove('actived')
             }
 
-            this.sortDomArticle(articles);
+            this.sortArticle(articles);
         });
     }
 
+
     // retrieve the filters with the 'actived' class and place them in the 'filterSelected' array    
-    getActiveFilters() {
+    activeFilter() {
         let currentFilters = document.querySelectorAll('ul li.actived');
         let filterSelected = [];
 
@@ -78,8 +78,8 @@ class Filter {
     }
 
     // compare/check if 'filters' has the same value as the 'article' class    
-    ownAllFilters(article) {
-        let filters = this.getActiveFilters();
+    allFilters(article) {
+        let filters = this.activeFilter();
         let classValue = article.classList.value;
         let classes = classValue.split(' ');
         let intersection = filters.filter(
@@ -90,9 +90,9 @@ class Filter {
     }
 
     // SHOW OR HIDE ARTICLES
-    sortDomArticle(articles) {
+    sortArticle(articles) {
         articles.forEach((article) => {
-            if (this.ownAllFilters(article)) {
+            if (this.allFilters(article)) {
                 article.style.display = 'block';
             } else {
                 article.style.display = 'none';
@@ -101,11 +101,9 @@ class Filter {
     }
 }
 
-function appDispatch() {
+function display() {
     new ApiFishEye().getDataFishEye().then((data) => {
         if (window.location.pathname.includes("/photographers.html")) {
-            // PHOTOGRAPHER PROFIL HEADER
-            new PhotographerProfil().displayPhotographerProfil(data);
 
             // DROPDOWN MENU
             new DropDownMenu().dropDown(data);
@@ -115,10 +113,10 @@ function appDispatch() {
             return
         }
         // HOMEPAGE (PHOTOGRAPHERS, SCROLL, FILTER)
-        new HomePageBuilder().displayPhotographers(data);
+        new HomePage().photographers(data);
     }).catch(() => {
         console.error('Failed to load ApiFishEye');
     })
 }
 
-appDispatch()
+display()

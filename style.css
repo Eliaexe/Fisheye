@@ -104,14 +104,14 @@ main>a:hover {
 
 /* PHOTOGRAPHER CARD */
 
-.articlePh {
+.card {
     margin: .5rem;
     padding: .3rem;
     text-align: center;
     width: 22rem;
 }
 
-.articlePh a {
+.card a {
     text-decoration: none;
 }
 
@@ -172,7 +172,7 @@ section img:hover {
 /* MEDIAQUERY */
 
 
-/* BANNER MQ */
+/* figure MQ */
 
 @media screen and (min-width: 1170px) {
     h1 {

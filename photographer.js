@@ -23,9 +23,9 @@ class PhotographerProfil {
             let photographersData = data.photographers;
             const id = window.location.search.split('id=')[1];
             const photographers = !id ? photographersData : photographersData.filter(photographer => photographer.id == id);
-            const sectionPhotographerProfil = document.getElementById('ph-profil-header');
+            const sectionPhotographerProfil = document.getElementById('profil-header');
             const templatePhotographerProfil = `
-            <article aria-label="Photographer Profil" class="ph-profil">
+            <article aria-label="Photographer Profil" class="profil">
                 <div class='ph-infos'>
                     <h2 id="ph-name">${photographers[0].name}</h2>
                     <p class="ph-city">${photographers[0].city}, ${photographers[0].country}</p>
