@@ -1,30 +1,84 @@
 // GET THE DATA FISH (PHOTOGRAPHERS & MEDIAS)
-class ApiFishEye {
+class Api {
     async getDataFishEye() {
         let url = 'resources/data.json';
         let response = await fetch(url);
         let data = await response.json();
 
-        const dataPhotographers = [...data.photographers];
-        const dataMedias = [...data.media];
+        const photographers = [...data.photographers];
+        const medias = [...data.media];
 
         return {
-            'photographers': dataPhotographers,
-            'media': dataMedias
+            'photographers': photographers,
+            'media': medias
         };
+    }
+}
+
+// FILTER TAGS
+class Filter {
+    // FILTER TAGS
+    filter() {
+        let filtres = document.querySelector('ul');
+        let articles = document.querySelectorAll('.articlePh');
+        // EVENTLISTENER "CLICK"
+        filtres.addEventListener('click', event => {
+            let classValue = event.target.classList.value;
+
+            if (-1 === classValue.indexOf('actived')) {
+                event.target.classList.add('actived')
+
+            } else {
+                event.target.classList.remove('actived')
+            }
+            this.sortDomArticle(articles);
+        });
+    }
+
+    activeFilters() {
+        let currentFilters = document.querySelectorAll('ul li.actived');
+        let filterSelected = [];
+
+        currentFilters.forEach(function(currentFilter) {
+            filterSelected.push(currentFilter.getAttribute("data-filter"));
+        });
+        return filterSelected;
+    }
+
+    // compare/check if 'filters' has the same value as the 'article' class    
+    allFilters(article) {
+        let filters = this.activeFilters();
+        let classValue = article.classList.value;
+        let classes = classValue.split(' ');
+        let intersection = filters.filter(
+            x => classes.includes(x)
+        );
+
+        return filters.length == intersection.length;
+    }
+
+    // SHOW OR HIDE ARTICLES
+    sortDomArticle(articles) {
+        articles.forEach((article) => {
+            if (this.allFilters(article)) {
+                article.style.display = 'block';
+            } else {
+                article.style.display = 'none';
+            }
+        });
     }
 }
 
 // DISPLAY ALL PHOTOGRAPHERS BY DEFAULT
 class HomePage {
-    // Build the photographers section, call the 'tags' function and the 'passer au contenu' button
-    photographers(data) {
+    // Build the photographers section, call the 'filter' function and the 'passer au contenu' button
+    display(data) {
             let photographers = data.photographers;
             photographers.map(photographe => {
                         let section = document.getElementById('photographers');
                         let article = document.createElement('article');
-                        article.className = photographe.tags.join(' ') + ' card';
-                        let templatePhotographer = `
+                        article.className = photographe.tags.join(' ') + ' articlePh';
+                        let template = `
             <a href="photographer.html?id=${photographe.id}" title="${photographe.name}">
                 <img src="resources/img/portrait/${photographe.portrait}" alt="${photographe.alt}">
                 <h2 class="name">${photographe.name}</h2>
@@ -37,73 +91,19 @@ class HomePage {
             `
 
             section.appendChild(article);
-            article.innerHTML = templatePhotographer;
-        })
-        new Filter().tags();
+            article.innerHTML = template;
+            })
+            new Filter().filter();
     }
 }
 
-// FUNCTION FILTER TAGS
-class Filter {
-    // FILTER TAGS
-    tags() {
-        let filtres = document.querySelector('ul');
-        let articles = document.querySelectorAll('.card');
-
-        // EVENT LISTENER ON CLICK LI
-        filtres.addEventListener('click', event => {
-            let classValue = event.target.classList.value;
-
-            if (-1 === classValue.indexOf('actived')) {
-                event.target.classList.add('actived')
-            } else {
-                event.target.classList.remove('actived')
-            }
-
-            this.sortArticle(articles);
-        });
-    }
 
 
-    // retrieve the filters with the 'actived' class and place them in the 'filterSelected' array    
-    activeFilter() {
-        let currentFilters = document.querySelectorAll('ul li.actived');
-        let filterSelected = [];
-
-        currentFilters.forEach(function (currentFilter) {
-            filterSelected.push(currentFilter.getAttribute("data-filter"));
-        });
-
-        return filterSelected;
-    }
-
-    // compare/check if 'filters' has the same value as the 'article' class    
-    allFilters(article) {
-        let filters = this.activeFilter();
-        let classValue = article.classList.value;
-        let classes = classValue.split(' ');
-        let intersection = filters.filter(
-            x => classes.includes(x)
-        );
-
-        return filters.length == intersection.length;
-    }
-
-    // SHOW OR HIDE ARTICLES
-    sortArticle(articles) {
-        articles.forEach((article) => {
-            if (this.allFilters(article)) {
-                article.style.display = 'block';
-            } else {
-                article.style.display = 'none';
-            }
-        });
-    }
-}
-
-function display() {
-    new ApiFishEye().getDataFishEye().then((data) => {
+function app() {
+    new Api().getDataFishEye().then((data) => {
         if (window.location.pathname.includes("/photographers.html")) {
+            // PHOTOGRAPHER PROFIL HEADER
+            new PhotographerProfil().displayPhotographerProfil(data);
 
             // DROPDOWN MENU
             new DropDownMenu().dropDown(data);
@@ -113,10 +113,10 @@ function display() {
             return
         }
         // HOMEPAGE (PHOTOGRAPHERS, SCROLL, FILTER)
-        new HomePage().photographers(data);
+        new HomePage().display(data);
     }).catch(() => {
-        console.error('Failed to load ApiFishEye');
+        console.error('Failed to load Api');
     })
 }
 
-display()
+app()

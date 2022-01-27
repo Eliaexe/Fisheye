@@ -1,31 +1,28 @@
-class ApiFishEye {
-    async getDataFishEye() {
+class Api {
+    async getData() {
         let url = 'resources/data.json';
         let response = await fetch(url);
         let data = await response.json();
 
-        const dataPhotographers = [...data.photographers];
-        const dataMedias = [...data.media];
+        const dataP = [...data.photographers];
+        const dataM = [...data.media];
         const id = window.location.search.split('id=')[1];
-        const photographer = (data.photographers.filter(item => item.id == id).map(i => i.name));
-        let photographerJob = data.media.filter(item => item.photographerId == id);
 
         return {
-            'photographers': dataPhotographers,
-            'media': dataMedias
+            'photographers': dataP,
+            'media': dataM
         };
     }
 }
 
-class PhotographerProfil {
-    // Check on which page the user is located, if the position corresponds with the photographer's "id", create the photographer's 'Profile' section
-    displayPhotographerProfil(data) {
+class PhotographerHome {
+    display(data) {
             let photographersData = data.photographers;
             const id = window.location.search.split('id=')[1];
             const photographers = !id ? photographersData : photographersData.filter(photographer => photographer.id == id);
-            const sectionPhotographerProfil = document.getElementById('profil-header');
-            const templatePhotographerProfil = `
-            <article aria-label="Photographer Profil" class="profil">
+            const section = document.getElementById('ph-profil-header');
+            const template = `
+            <article aria-label="Photographer Profil" class="ph-profil">
                 <div class='ph-infos'>
                     <h2 id="ph-name">${photographers[0].name}</h2>
                     <p class="ph-city">${photographers[0].city}, ${photographers[0].country}</p>
@@ -37,9 +34,7 @@ class PhotographerProfil {
             </article>
             `
 
-        sectionPhotographerProfil.innerHTML = templatePhotographerProfil;
-        /*new Modal().modal(photographersData);
-        new Form().fields();*/
+        section.innerHTML = template;
     }
     openModal(){
         let btn = document.getElementById("ph-contact");
@@ -57,62 +52,48 @@ class PhotographerProfil {
         let prenom = document.getElementById("first-name");
         let nom = document.getElementById("last-name");
         let email = document.getElementById("email");
-        let message = document.getElementById("message");
-        let submit = document.getElementById("submit");
-
 
         let fnErr = document.getElementById("fn-err")
         let lnErr = document.getElementById("ln-err")
         let eErr = document.getElementById("e-err")
-        let mErr = document.getElementById("m-err")
-        let data = [fnErr, lnErr, eErr, mErr];
+        let submit = document.getElementById("submit")
 
-        let succes = ""
         const firstSecondNamePattern = /^([a-zA-Z ]){2,30}$/;
         const emailPattern = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,})$/;
-        const messagePattern = /^([a-zA-Z ]){5,10000}$/;
 
         function controll(pattern, campo, errore) {
-            campo.addEventListener('keyup', () => {
-                console.log(succes);
-
+            submit.addEventListener('click', () => {
+                errore.setAttribute("data-error-visible", false)
                 if (pattern.test(campo.value)) {
-                    succes++
-                    errore.setAttribute("id", "ciao")
-        console.log(data);
-
                     errore.setAttribute("data-error-visible", false)
+                campo.classList.add("ok")
                 } else {
                     errore.setAttribute("data-error-visible", true)
+                campo.classList.remove("ok")
                 }
-
-                if (succes >= 3) {
-                    submit.style.display = "block"
-                } else {
-                        submit.style.display = "none"
-                }      
             })
         }
 
-
-        controll(firstSecondNamePattern,prenom,fnErr)
-        controll(firstSecondNamePattern,nom,lnErr)
-        controll(emailPattern,email,eErr)
-        //controll(messagePattern,message,mErr)
-
-// terminare 
-
-
+        function check () {
+            controll(firstSecondNamePattern,prenom,fnErr)
+            controll(firstSecondNamePattern,nom,lnErr)
+            controll(emailPattern,email,eErr)
+            submit.addEventListener('click', () =>{
+                if (document.querySelectorAll(".ok").length == 3){
+                    window.location.href = "index.html";
+                }
+            })
+        }
+        check ()
     }
-
 }
 
 class postFactory {
     formatPost(element){ 
-        let mainPoisition = document.getElementById("ph-works");
+        let poisition = document.getElementById("ph-works");
         let postTag = document.createElement("article");
         postTag.classList.add("ph-work-elt")
-        let postTemplate = `
+        let post = `
         <a href='#' id="${element.id}" title="${element.title}">
         </a>
         <div class="ph-work-elt-text">
@@ -126,8 +107,8 @@ class postFactory {
             </div>
         </div>
         `
-        postTag.innerHTML = postTemplate
-        mainPoisition.appendChild(postTag)
+        postTag.innerHTML = post
+        poisition.appendChild(postTag)
     }
 
     photoPost(element, photographer){
@@ -156,8 +137,7 @@ class postFactory {
     }
 }
 
-class DropDownMenu {
-    // Events, open/close the dropDownMenu
+class DropDown {
     dropDown() {
         let btn = document.getElementById("dropdownBtn");
         let icon1 = document.getElementById("dropdownIcon")
@@ -171,26 +151,21 @@ class DropDownMenu {
         });
     }
 
-    sortValue(){
+    value(){
         let sortBtn = Array.from(document.querySelectorAll('[role="option"]'));
         let btn = document.getElementById("dropdownBtn");
         let list = document.getElementById('dropdownList');
-
 
         sortBtn.forEach(e => {
             e.addEventListener('click', () =>{
                 btn.innerHTML = e.innerText
                 list.style.display = "none"
-
             })
         })
     }
-
-    
 }
 
 class Disposition{
-
     order(data){
         const id = window.location.search.split('id=')[1];
         let items = (data.media.filter(item => item.photographerId == id));
@@ -218,19 +193,17 @@ class Disposition{
         observer.observe(btn, { attributes: true, childList: true, characterData: true, subtree: true });
         return items
     }
-
 }
 
 class Carousel{
-
     constructor() {
         this.index = +0;
     }
 
     init(items){
         let page = document.querySelectorAll(".ph-media")
-        let mediaPlace = document.getElementById("works-lightbox-media")
-        let titlePlace = document.getElementById("works-lightbox-name")
+        let media = document.getElementById("works-lightbox-media")
+        let title = document.getElementById("works-lightbox-name")
         let close = document.getElementById("close");
         let back = document.getElementById("back")
 
@@ -243,44 +216,41 @@ class Carousel{
             document.getElementById('works-lightbox').style.display = 'block';
 
             this.index = Number(e.getAttribute("id"))
-            mediaPlace.innerHTML = ""
-            titlePlace.innerHTML = "";
+            media.innerHTML = ""
+            title.innerHTML = "";
 
-                mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
-                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
+                media.appendChild(document.getElementById(this.index).cloneNode())
+                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
             })
         });
 
         back.addEventListener("click", () =>{
             this.index -= 1
-            mediaPlace.innerHTML = ""
-            titlePlace.innerHTML = "";
+            media.innerHTML = ""
+            title.innerHTML = "";
             if (this.index < 0){
                 this.index += page.length
-                mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
-                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
+                media.appendChild(document.getElementById(this.index).cloneNode())
+                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
             } else {
-                mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
-                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
+                media.appendChild(document.getElementById(this.index).cloneNode())
+                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
             }
         })
 
         next.addEventListener("click", () =>{
             this.index += +1
-            mediaPlace.innerHTML = ""
-            titlePlace.innerHTML = "";
+            media.innerHTML = ""
+            title.innerHTML = "";
 
             if (this.index > page.length - 1){
                 this.index -= page.length
-                mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
-                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
-
+                media.appendChild(document.getElementById(this.index).cloneNode())
+                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
             } else {
-                mediaPlace.appendChild(document.getElementById(this.index).cloneNode())
-                titlePlace.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
-
+                media.appendChild(document.getElementById(this.index).cloneNode())
+                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
             }
-
         })
         
         close.addEventListener("click", () =>{
@@ -292,69 +262,74 @@ class Carousel{
 class Like{
     getNumbers(items){
         let like = items.map(item => item.likes)
-        let price = items.map(item => item.price)
         let box = document.getElementById("box")
         let likes = document.createElement("span")
-        let prices = document.createElement("span")
+        let prices  = document.createElement("span")
         likes.innerHTML = like.reduce((partial_sum, a) => partial_sum + a, 0);
-        prices.id = "prices"
+        prices .id = "prices "
         likes.id = "likes"
-        box.insertAdjacentElement("afterbegin", prices)
+        box.insertAdjacentElement("afterbegin", prices )
         box.insertAdjacentElement("afterbegin", likes)
         box.innerHTML +='<i class="fas fa-heart" aria-label="likes"></i>'
     }
-    ciao(data){
-        document.getElementById("prices").innerHTML
+
+    card(data){
+        document.getElementById("prices ").innerHTML
         const id = window.location.search.split('id=')[1];
         let photographer = data.photographers.filter(i => i.id == id)
-        document.getElementById("prices").innerHTML += (photographer[0].price) + "€/Jour"
+        document.getElementById("prices ").innerHTML += (photographer[0].price) + "€/Jour"
     }
+
     click(){
         let heart = document.querySelectorAll(".heart-btn")
-
+        let card = document.getElementById("likes")
         heart.forEach(e => {
             e.addEventListener("click", () => {
                 if(e.classList.contains("clicked")){
                     e.classList.replace("fas", "far");
                     e.classList.remove("clicked");
                     ((e.previousElementSibling).children.item(0)).innerText = +(e.previousElementSibling).children.item(0).innerText -1
+                    card.innerText = +card.innerText - 1;
+                    
                 } else {
                     e.classList.add("clicked");
                     e.classList.replace("far", "fas");
-                    ((e.previousElementSibling).children.item(0)).innerText = +(e.previousElementSibling).children.item(0).innerText +1
+                    ((e.previousElementSibling).children.item(0)).innerText = +(e.previousElementSibling).children.item(0).innerText +1;
+                    
+                    card.innerText = +card.innerText + 1;
                 }
             })
         });
     }
 }
-function appDispatch() {
-    new ApiFishEye().getDataFishEye().then((data) => {
-        new DropDownMenu().sortValue();
+
+function app() {
+    new Api().getData().then((data) => {
+        new DropDown().value();
 
             // PHOTOGRAPHER PROFIL HEADER
-            new PhotographerProfil().displayPhotographerProfil(data);
+            new PhotographerHome().display(data);
+            // DATA
             const id = window.location.search.split('id=')[1];
             let items = new Disposition().order(data)
-
             // DROPDOWN MENU
-            new DropDownMenu().dropDown();
+            new DropDown().dropDown();
+            // BUILDING POST
             new postFactory().bulidingPost(items);
+            // CHANGE ORDER
             new Disposition();
-            new PhotographerProfil().openModal();
-            new PhotographerProfil().controllData();
+            // MODAL
+            new PhotographerHome().openModal();
+            new PhotographerHome().controllData();
+            // CAROUSEL
             new Carousel().init(items);
+            // LIKE
             new Like().getNumbers(items);
-            new Like().ciao(data);
+            new Like().card(data);
             new Like().click()
-
-            //PHOTOGRAPHER GALLERY & LIKES BOX
-            //new MediaBuilder().photographersMedias(data);
-            //return
-        
-
     }).catch(() => {
-        console.error('Failed to load ApiFishEye');
+        console.error('Failed to load Api');
     })
 }
 
-appDispatch()
+app()
