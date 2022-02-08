@@ -52,7 +52,7 @@ class PhotographerHome {
         let prenom = document.getElementById("first-name");
         let nom = document.getElementById("last-name");
         let email = document.getElementById("email");
-
+        let message = document.getElementById("message")
         let fnErr = document.getElementById("fn-err")
         let lnErr = document.getElementById("ln-err")
         let eErr = document.getElementById("e-err")
@@ -80,7 +80,7 @@ class PhotographerHome {
             controll(emailPattern,email,eErr)
             submit.addEventListener('click', () =>{
                 if (document.querySelectorAll(".ok").length == 3){
-                    window.location.href = "index.html";
+                    console.log(nom.value, prenom.value, email.value, message.value)
                 }
             })
         }
