@@ -80,7 +80,7 @@ class PhotographerHome {
             controll(emailPattern,email,eErr)
             submit.addEventListener('click', () =>{
                 if (document.querySelectorAll(".ok").length == 3){
-                    console.log(nom.value, prenom.value, email.value, message.value)
+                    console.log(nom.value, prenom.value, email.value)
                 }
             })
         }
