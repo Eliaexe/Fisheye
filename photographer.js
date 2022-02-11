@@ -151,7 +151,7 @@ class DropDown {
         });
     }
 
-    value(){
+    value(data){
         let sortBtn = Array.from(document.querySelectorAll('[role="option"]'));
         let btn = document.getElementById("dropdownBtn");
         let list = document.getElementById('dropdownList');
@@ -170,28 +170,39 @@ class Disposition{
         const id = window.location.search.split('id=')[1];
         let items = (data.media.filter(item => item.photographerId == id));
         let btn = document.getElementById("dropdownBtn");
-        let flash = document.getElementById("ph-works")
-        var observer = new WebKitMutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
+        let flash = document.getElementById("ph-works");
+        let sortBtn = Array.from(document.querySelectorAll('[role="option"]'));
+        let sorted = ''
 
-            if(btn.innerHTML == "Popularité"){
-            let popularOrder = items.sort((a, b) => {
-                return b.likes - a.likes
+
+
+        sortBtn.forEach(e => {
+            e.addEventListener('click', () =>{
+                if(e.innerText === "Popularité"){
+                    let Pop = items.sort((a,b) => {
+                        return b.likes - a.likes;
+                    })
+                    sorted = Pop
+                    } else if(e.innerText === "Date"){
+                        let Dat = items.sort((a, b) => {
+                            return new Date(a.date).valueOf() - new Date(b.date).valueOf();
+                        })
+                        sorted = Dat
+                    } else if(e.innerText === "Tître"){
+                    let Tit = items.sort((a, b) => a.title.localeCompare(b.title));
+                    sorted = Tit
+                    }
+                    console.log(sorted);
+                    items = sorted
+                    flash.innerHTML = ''
+            new postFactory().bulidingPost(items);        
+
             })
-            } else if(btn.innerHTML == "Date"){
-            let dateOrder = items.sort((a, b) => { // SORT BY DATE 
-                return new Date(a.date).valueOf() - new Date(b.date).valueOf();
-            })
-            } else if(btn.innerHTML == "Tître"){
-            let titleOrder = items.sort((a, b) => a.title.localeCompare(b.title)
-            );
-            }
-            flash.innerHTML = ''
-            new postFactory().bulidingPost(items);
-            });    
-        });
-        observer.observe(btn, { attributes: true, childList: true, characterData: true, subtree: true });
+
+        })
         return items
+
+
     }
 }
 
@@ -311,13 +322,15 @@ function app() {
             new PhotographerHome().display(data);
             // DATA
             const id = window.location.search.split('id=')[1];
-            let items = new Disposition().order(data)
+            let items = new Disposition().order(data) 
+
             // DROPDOWN MENU
             new DropDown().dropDown();
             // BUILDING POST
             new postFactory().bulidingPost(items);
             // CHANGE ORDER
             new Disposition();
+
             // MODAL
             new PhotographerHome().openModal();
             new PhotographerHome().controllData();
@@ -327,6 +340,7 @@ function app() {
             new Like().getNumbers(items);
             new Like().card(data);
             new Like().click()
+
     }).catch(() => {
         console.error('Failed to load Api');
     })
