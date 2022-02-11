@@ -196,13 +196,12 @@ class Disposition{
                     items = sorted
                     flash.innerHTML = ''
             new postFactory().bulidingPost(items);        
+            new Carousel().init();
 
             })
 
         })
         return items
-
-
     }
 }
 
@@ -211,7 +210,7 @@ class Carousel{
         this.index = +0;
     }
 
-    init(items){
+    init(){
         let page = document.querySelectorAll(".ph-media")
         let media = document.getElementById("works-lightbox-media")
         let title = document.getElementById("works-lightbox-name")
@@ -335,7 +334,7 @@ function app() {
             new PhotographerHome().openModal();
             new PhotographerHome().controllData();
             // CAROUSEL
-            new Carousel().init(items);
+            new Carousel().init();
             // LIKE
             new Like().getNumbers(items);
             new Like().card(data);
