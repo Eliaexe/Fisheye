@@ -30,7 +30,7 @@
                 <span class="fas fa-chevron-down arrow-down-open" id="dropdownIcon" role='button'></span>
 
                 <ul id="dropdownList" class="hidden-sort" role="listbox">
-                    <span class="fas fa-chevron-up arrow-up-close"></span>
+                    <button class="fas fa-chevron-up arrow-up-close" id="dropdownIcon2"></button>
                     <li class="sort" role='option'>Popularité</li>
                     <li class="sort" role='option'>Date</li>
                     <li class="sort" role='option'>Tître</li>
@@ -81,13 +81,17 @@
             </form>
         </div>
         <!--LIGHTBOX-->
-        <aside id="works-lightbox" aria-hidden="true">
+        <aside id="works-lightbox" class="carousel" aria-hidden="true" style="display: none;">
             <article id="lightbox-body">
-                <span class="fas fa-times close-lightbox-icon" role="button" title="Close dialog" id="close"></span>
-                <span class="fas fa-chevron-left left-arrow-lightbox" role="button" title="Previous image" id="back"></span>
-                <span class="fas fa-chevron-right right-arrow-lightbox" role="button" title="Next image" id="next"></span>
-                <div id="works-lightbox-media"></div>
-                <h3 id="works-lightbox-name">ll</h3>
+                <button class="fas fa-times close-lightbox-icon" role="button" title="Close dialog" id="close"></button>
+                <div class="media-container">
+                    <button class="fas fa-chevron-left left-arrow-lightbox" role="button" title="Previous image" id="back"></button>
+                    <figure class="medias" id="figure">
+                        <div id="works-lightbox-media"></div>
+                        <figcaption id="works-lightbox-name"></figcaption>    
+                    </figure>
+                    <button class="fas fa-chevron-right right-arrow-lightbox" role="button" title="Next image" id="next"></button>
+                </div>
             </article>
         </aside>
 

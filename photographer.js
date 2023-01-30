@@ -119,7 +119,7 @@ class postFactory {
 
     videoPost(element, photographer){
         let place = document.getElementById(element.id);
-        let video = `<video controls="controls" src="resources/img/${photographer}/${element.video}" alt="${element.title}" role="button" class="ph-media"></video>`
+        let video = `<video src="resources/img/${photographer}/${element.video}" alt="${element.title}" role="button" class="ph-media"></video>`
         place.innerHTML = video
     }
 
@@ -143,12 +143,13 @@ class DropDown {
         let icon1 = document.getElementById("dropdownIcon")
         let button = [btn, icon1]
         let list = document.getElementById("dropdownList")
-
+        let icon2 = list.children[0]
         button.forEach(e => {
             e.addEventListener('click', () => {
                 list.style.display = "block"
             })
         });
+        icon2.addEventListener('click', () => { list.style.display = 'none' })
     }
 
     value(data){
@@ -174,8 +175,6 @@ class Disposition{
         let sortBtn = Array.from(document.querySelectorAll('[role="option"]'));
         let sorted = ''
 
-
-
         sortBtn.forEach(e => {
             e.addEventListener('click', () =>{
                 if(e.innerText === "Popularité"){
@@ -192,14 +191,11 @@ class Disposition{
                     let Tit = items.sort((a, b) => a.title.localeCompare(b.title));
                     sorted = Tit
                     }
-                    console.log(sorted);
                     items = sorted
                     flash.innerHTML = ''
             new postFactory().bulidingPost(items);        
             new Carousel().init();
-
             })
-
         })
         return items
     }
@@ -216,18 +212,26 @@ class Carousel{
         let title = document.getElementById("works-lightbox-name")
         let close = document.getElementById("close");
         let back = document.getElementById("back")
+        
+
+        let figure = document.getElementById('figure').firstElementChild
+        
+        const replacing = ( e, html ) => {
+            e.outerHTML = html;
+        };
 
         for (let i = 0; i < page.length; i++){
             page[i].setAttribute('id', i) 
         }
-
+        
         page.forEach(e => {
             e.addEventListener("click", () =>{
-            document.getElementById('works-lightbox').style.display = 'block';
+                document.getElementById('works-lightbox').style.display = 'flex';
+                if (e.nodeName == 'VIDEO') { e.controls = true }
 
-            this.index = Number(e.getAttribute("id"))
-            media.innerHTML = ""
-            title.innerHTML = "";
+                this.index = Number(e.getAttribute("id"))
+                media.innerHTML = ""
+                title.innerHTML = "";
 
                 media.appendChild(document.getElementById(this.index).cloneNode())
                 title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
@@ -240,7 +244,6 @@ class Carousel{
             title.innerHTML = "";
             if (this.index < 0){
                 this.index += page.length
-                media.appendChild(document.getElementById(this.index).cloneNode())
                 title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
             } else {
                 media.appendChild(document.getElementById(this.index).cloneNode())
@@ -265,6 +268,9 @@ class Carousel{
         
         close.addEventListener("click", () =>{
             document.getElementById('works-lightbox').style.display = 'none';
+            page.forEach( e => {
+                if (e.nodeName == 'VIDEO' && e.controls == true) { e.controls = false }
+            })
         })
     }
 }
