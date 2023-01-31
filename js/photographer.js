@@ -6,7 +6,6 @@ class Api {
 
         const dataP = [...data.photographers];
         const dataM = [...data.media];
-        const id = window.location.search.split('id=')[1];
 
         return {
             'photographers': dataP,
@@ -94,17 +93,12 @@ class postFactory {
         let postTag = document.createElement("article");
         postTag.classList.add("ph-work-elt")
         let post = `
-        <a href='#' id="${element.id}" title="${element.title}">
-        </a>
+        <figure id="${element.id}" title="${element.title}" tabindex="0"></figure>
         <div class="ph-work-elt-text">
             <h2 class="ph-work-title">${element.title}</h2>
-            <span class="ph-work-price">${element.price} €</span>
-            <div class='ph-elt-like'>
-            <span class="ph-work-like">
-                <a class="like-counter">${element.likes}</a>
-            </span>
+            <p class="ph-work-price">${element.price} €</p>
+            <p class="like-counter">${element.likes}</p>
             <i class="far fa-heart heart-btn" aria-label='likes' role="button" data-value="${element.likes}"></i>
-            </div>
         </div>
         `
         postTag.innerHTML = post
@@ -113,13 +107,13 @@ class postFactory {
 
     photoPost(element, photographer){
         let place = document.getElementById(element.id)
-        let image = `<img src="resources/img/${photographer}/${element.image}" alt="${element.title}" role="button" class="ph-media">`
+        let image = `<img src="resources/img/${photographer}/${element.image}" alt="${element.title}" tabindex="-1" class="ph-media">`
         place.innerHTML = image
     }
 
     videoPost(element, photographer){
         let place = document.getElementById(element.id);
-        let video = `<video src="resources/img/${photographer}/${element.video}" alt="${element.title}" role="button" class="ph-media"></video>`
+        let video = `<video src="resources/img/${photographer}/${element.video}" alt="${element.title}" tabindex="-1" class="ph-media"></video>`
         place.innerHTML = video
     }
 
@@ -208,65 +202,50 @@ class Carousel{
 
     init(){
         let page = document.querySelectorAll(".ph-media")
-        let media = document.getElementById("works-lightbox-media")
-        let title = document.getElementById("works-lightbox-name")
         let close = document.getElementById("close");
         let back = document.getElementById("back")
-        
+        let figure = document.getElementById('figure')
 
-        let figure = document.getElementById('figure').firstElementChild
-        
-        const replacing = ( e, html ) => {
-            e.outerHTML = html;
-        };
+        const changeMedia = ( index ) => {
+            figure.innerHTML = ''
+            let media = document.getElementById(this.index).cloneNode()
+            if (media.nodeName == 'VIDEO') { media.controls = true }
+            let figcaption = document.createElement('figcaption')
+            figure.appendChild(media)
+            figcaption.setAttribute('id', 'works-lightbox-name')
+            figcaption.innerText = document.getElementById(this.index).cloneNode().getAttribute("alt") 
+            figure.appendChild(figcaption)
+        }
 
         for (let i = 0; i < page.length; i++){
             page[i].setAttribute('id', i) 
         }
         
         page.forEach(e => {
-            e.addEventListener("click", () =>{
+            e.addEventListener("click", () => {
                 document.getElementById('works-lightbox').style.display = 'flex';
-                if (e.nodeName == 'VIDEO') { e.controls = true }
-
                 this.index = Number(e.getAttribute("id"))
-                media.innerHTML = ""
-                title.innerHTML = "";
-
-                media.appendChild(document.getElementById(this.index).cloneNode())
-                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
+                changeMedia(this.index)
             })
         });
 
-        back.addEventListener("click", () =>{
-            this.index -= 1
-            media.innerHTML = ""
-            title.innerHTML = "";
+        back.addEventListener("click", () => {
+            this.index -= 1 
             if (this.index < 0){
                 this.index += page.length
-                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
-            } else {
-                media.appendChild(document.getElementById(this.index).cloneNode())
-                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
-            }
+                changeMedia(this.index)
+            } else { changeMedia(this.index) }
         })
 
-        next.addEventListener("click", () =>{
+        next.addEventListener("click", () => {
             this.index += +1
-            media.innerHTML = ""
-            title.innerHTML = "";
-
             if (this.index > page.length - 1){
                 this.index -= page.length
-                media.appendChild(document.getElementById(this.index).cloneNode())
-                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
-            } else {
-                media.appendChild(document.getElementById(this.index).cloneNode())
-                title.innerHTML = document.getElementById(this.index).cloneNode().getAttribute("alt");
-            }
+                changeMedia(this.index)
+            } else { changeMedia(this.index) }
         })
         
-        close.addEventListener("click", () =>{
+        close.addEventListener("click", () => {
             document.getElementById('works-lightbox').style.display = 'none';
             page.forEach( e => {
                 if (e.nodeName == 'VIDEO' && e.controls == true) { e.controls = false }

@@ -136,6 +136,10 @@ header img {
     width: 20.9375rem;
 }
 
+.ph-work-elt figure {
+    margin: 0;
+}
+
 .ph-work-elt .fa-heart:hover,
 .ph-work-elt img:hover,
 .ph-work-elt video:hover {
@@ -168,6 +172,14 @@ header img {
 .ph-work-title {
     font-size: 1em;
     font-weight: 400;
+}
+
+.ph-work-like {
+    display: flex;
+}
+
+.fa-heart::before{
+    display: hidden;
 }
 
 
@@ -318,25 +330,23 @@ input[data-error]::after {
 
 #lightbox-body {
     background-color: rgba(255, 255, 255, 0);
-    position: fixed;
-    height: 85%;
-    width: 60%;
+    height: 88%;
+    width: 70%;
     top: 5%;
     text-align: center;
-    padding: 10px;
 }
 
-#works-lightbox-media {
-    background-color: rgba(255, 255, 255, 0);
+#figure {
+    /* background-color: rgba(255, 255, 255, 0); */
     height: 100%;
     margin: 0 auto 1rem;
     overflow: hidden;
     width: 90%;
 }
 
-#works-lightbox-media img,
-#works-lightbox-media video {
-    height: 100%;
+#figure img,
+#figure video {
+    height: 95%;
     object-fit: contain;
     width: 100%;
     margin: 1px 7px;
@@ -347,7 +357,6 @@ input[data-error]::after {
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    padding: 10px 5px;
 }
 
 .medias{
@@ -357,9 +366,8 @@ input[data-error]::after {
 .close-lightbox-icon {
     color: #901C1C;
     font-size: 1.7rem;
-    position: absolute;
-    right: -3rem;
-    top: .5rem;
+    position: relative;
+    left: 48%;
 }
 
 .left-arrow-lightbox,
@@ -391,7 +399,7 @@ aside button,
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0;
-    background-color: rgba(255, 255, 255, 0);
+    /* background-color: rgba(255, 255, 255, 0); */
 }
 
 /* BOX PRICE */
@@ -472,9 +480,7 @@ aside button,
 }
 
 @media (min-width: 900px) {
-    header {
-        margin-left: 2rem;
-    }
+
     .ph-city {
         font-size: 20px;
         margin-bottom: 1rem;
@@ -599,9 +605,5 @@ aside button,
         cursor: pointer;
         right: 0;
         top: 48%;
-    }
-    aside article:nth-last-child(1) {
-        left: 23%;
-        padding: .5rem 0;
     }
 }
