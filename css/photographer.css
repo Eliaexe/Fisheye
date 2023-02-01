@@ -93,6 +93,11 @@ header img {
     margin: 0;
 }
 
+#tagsContainer{
+    display: flex;
+    flex-direction: row;
+}
+
 .ph-tags {
     border: .5px solid #C4C4C4;
     border-radius: .6875rem;

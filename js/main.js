@@ -16,23 +16,41 @@ class Api {
 }
 
 // FILTER TAGS
+
 class Filter {
+    // DISPLAY ALL THE FILTER 
+    filterDisplayer(data) {
+        let tags = data.photographers.map(x => x.tags)
+        let tagsToDisplay = []
+        let tagsContainer = document.getElementById('tagsList')
+        tags.forEach(e => {
+            for (let i = 0; i < e.length; i++) {
+                const el = e[i];
+                if (!tagsToDisplay.includes(el)) {
+                    tagsToDisplay.push(el)
+                tagsContainer.innerHTML += `<li data-filter="${el}" tabindex="0">#${el}</li>`
+                }
+            }
+        });
+    }
     // FILTER TAGS
     filter() {
         let filtres = document.querySelector('ul');
         let articles = document.querySelectorAll('.articlePh');
-        // EVENTLISTENER "CLICK"
-        filtres.addEventListener('click', event => {
-            let classValue = event.target.classList.value;
 
+        const handlerTag = (e) => {
+            let classValue = e.target.classList.value;
             if (-1 === classValue.indexOf('actived')) {
-                event.target.classList.add('actived')
-
+                e.target.classList.add('actived')
             } else {
-                event.target.classList.remove('actived')
+                e.target.classList.remove('actived')
             }
             this.sortDomArticle(articles);
-        });
+        }
+
+        // EVENTLISTENER "CLICK AND ENTER KEY"
+        filtres.addEventListener('click', event => { handlerTag(event) });
+        filtres.addEventListener('keypress', event => { if (event.key == "Enter") { handlerTag(event) } });
     }
 
     activeFilters() {
@@ -79,7 +97,7 @@ class HomePage {
             let article = document.createElement('article');
             article.className = photographe.tags.join(' ') + ' articlePh';
             let template = `
-                <a href="photographer.html?id=${photographe.id}" title="${photographe.name} profile">
+                <a href="photographer.html?id=${photographe.id}" title="${photographe.name} profile" tabindex="1">
                     <figure>
                         <img src="resources/img/portrait/${photographe.portrait}" alt="${photographe.alt}">
                         <figcaption class="name">${photographe.name}</figcaption>
@@ -95,6 +113,7 @@ class HomePage {
             article.innerHTML = template;
         })
         new Filter().filter();
+        new Filter().filterDisplayer(data);
     }
 }
 

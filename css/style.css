@@ -39,11 +39,16 @@ header nav ul {
     list-style: none;
     margin-left: auto;
     margin-right: auto;
-    padding: 0;
+    padding: 0 4px;
     position: absolute;
     right: 0;
     text-align: center;
     top: 90px;
+
+}
+
+nav img {
+    width: 180px;
 }
 
 
@@ -67,7 +72,7 @@ ul li {
     font-size: 14px;
     font-weight: 500;
     list-style: none;
-    margin: 0 .1875rem;
+    margin: 0 .1875rem .7rem;
     padding: .0625rem .375rem;
     text-decoration: none;
     transition: all .2s;
@@ -205,7 +210,7 @@ figure:focus{
         margin-right: 0;
     }
     section {
-        margin-top: 5rem;
+        margin-top: 3rem;
     }
 }
 

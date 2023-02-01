@@ -13,6 +13,7 @@ class Api {
         };
     }
 }
+// <p >${photographers[0].tags.map(tag => `<a class="ph-tags" href="index.html">#${tag}</a>`).join(" ")}</p>
 
 class PhotographerHome {
     display(data) {
@@ -26,7 +27,7 @@ class PhotographerHome {
                     <h2 id="ph-name">${photographers[0].name}</h2>
                     <p class="ph-city">${photographers[0].city}, ${photographers[0].country}</p>
                     <p class="ph-tagline">${photographers[0].tagline}</p>
-                    <p >${photographers[0].tags.map(tag => `<a class="ph-tags" href="index.html">#${tag}</a>`).join(" ")}</p>
+                    <div id="tagsContainer"> ${photographers[0].tags.map(tag => `<p class="ph-tags">#${tag}</p>`).join(" ")} </div>
                 </div>
                 <button id="ph-contact" title='Contact Me'>Contactez-moi</button>
                 <img src="resources/img/portrait/${photographers[0].portrait}" alt="${photographers[0].alt}">
