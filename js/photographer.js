@@ -13,7 +13,6 @@ class Api {
         };
     }
 }
-// <p >${photographers[0].tags.map(tag => `<a class="ph-tags" href="index.html">#${tag}</a>`).join(" ")}</p>
 
 class PhotographerHome {
     display(data) {
@@ -22,7 +21,6 @@ class PhotographerHome {
             const photographers = !id ? photographersData : photographersData.filter(photographer => photographer.id == id);
             const section = document.getElementById('ph-profil-header');
             const template = `
-            <article aria-label="Photographer Profil" class="ph-profil">
                 <div class='ph-infos'>
                     <h2 id="ph-name">${photographers[0].name}</h2>
                     <p class="ph-city">${photographers[0].city}, ${photographers[0].country}</p>
@@ -31,7 +29,6 @@ class PhotographerHome {
                 </div>
                 <button id="ph-contact" title='Contact Me'>Contactez-moi</button>
                 <img src="resources/img/portrait/${photographers[0].portrait}" alt="${photographers[0].alt}">
-            </article>
             `
 
         section.innerHTML = template;
@@ -80,7 +77,7 @@ class PhotographerHome {
             controll(emailPattern,email,eErr)
             submit.addEventListener('click', () =>{
                 if (document.querySelectorAll(".ok").length == 3){
-                    console.log(nom.value, prenom.value, email.value)
+                    console.log(nom.value, prenom.value, email.value, "message sended")
                 }
             })
         }
@@ -99,7 +96,7 @@ class postFactory {
             <h2 class="ph-work-title">${element.title}</h2>
             <p class="ph-work-price">${element.price} €</p>
             <p class="like-counter">${element.likes}</p>
-            <i class="far fa-heart heart-btn" aria-label='likes' role="button" data-value="${element.likes}"></i>
+            <i class="far fa-heart heart-btn" aria-label='likes' role="button" data-value="${element.likes}" tabindex="0"></i>
         </div>
         `
         postTag.innerHTML = post

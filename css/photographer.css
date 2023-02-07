@@ -218,20 +218,7 @@ header img {
 
 /* FORM */
 
-#form-dialog {
-    border: none;
-    border-radius: .3rem;
-    display: none;
-    left: 50%;
-    max-width: 42rem;
-    min-width: 18.75rem;
-    position: absolute;
-    right: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    width: 100%;
-    z-index: 11;
-}
+
 
 .formData {
     display: flex;
@@ -259,9 +246,21 @@ header img {
 form {
     background: #db8876;
     border-radius: .3rem;
-    display: flex;
-    flex-direction: column;
     padding: 1.5rem 2.2rem 2.2rem;
+    margin: 2px;
+    border-radius: .3rem;
+    
+    left: 50%;
+    max-width: 42rem;
+    min-width: 18.75rem;
+    position: absolute;
+    right: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 11;
+    
+
 }
 
 form #ph-form-name {
@@ -575,11 +574,16 @@ aside button,
     }
 }
 
-@media (min-width: 600px) {
-    #form-dialog {
-        top: 4.3rem;
-        width: 95%;
+@media (max-width: 770px) {
+    form{
+        width: 80%;
+        top: 13%;
     }
+}
+
+
+@media (min-width: 600px) {
+
     form .close-form-icon {
         font-size: 2.4em;
     }
