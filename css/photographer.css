@@ -30,15 +30,12 @@ nav img {
 /* HEADER */
 
 header {
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 2rem;
     margin-top: 2rem;
 }
-
-header img {
-    width: 12.5rem;
-}
-
 
 /* HEADER PH HOME */
 
@@ -55,13 +52,13 @@ header img {
     margin: 0;
 }
 
-.ph-profil {
+/* header {
     align-items: center;
     display: flex;
     justify-content: space-between;
-}
+} */
 
-.ph-profil button {
+header button {
     background: #901c1c;
     border: none;
     border-radius: 5px;
@@ -75,16 +72,16 @@ header img {
     width: 170px;
 }
 
-.ph-profil button:hover {
+header button:hover {
     background: #651414;
     transform: scale(1.05);
 }
 
-.ph-profil img {
+header img {
     border-radius: 50%;
-    height: 100px;
+    height: 180px;
     object-fit: cover;
-    width: 100px;
+    width: 180px;
 }
 
 .ph-tagline {
@@ -212,13 +209,11 @@ header img {
     max-height: 130px;
 }
 #dropdownIcon2{
-    font-size: 1rem;
-    padding: 2px;
+    /* font-size: 1rem;
+    padding: 2px; */
 }
 
 /* FORM */
-
-
 
 .formData {
     display: flex;
@@ -436,7 +431,7 @@ aside button,
 }
 
 @media (max-width: 1200px) {
-    .ph-profil button {
+    header button {
         left: 0;
         margin-left: auto;
         margin-right: auto;
@@ -446,17 +441,17 @@ aside button,
 }
 
 @media (min-width: 1200px) {
-    .ph-profil button {
+    header button {
         left: 0;
         margin-right: auto;
         right: 0;
         z-index: 1;
     }
-    .ph-profil {
+    header {
         background-color: #FAFAFA;
         margin: 0 20px;
     }
-    .ph-profil button {
+    header button {
         height: 55px;
         left: 42rem;
         position: absolute;
@@ -494,11 +489,11 @@ aside button,
         font-weight: 400;
         margin-bottom: 1rem;
     }
-    .ph-profil {
+    header {
         background: #fafafa;
         padding: 2rem;
     }
-    .ph-profil img {
+    header img {
         height: 200px;
         width: 200px;
     }
@@ -508,17 +503,13 @@ aside button,
         margin-bottom: 1rem;
     }
     .arrow-down-open {
-        color: #fff;
-        left: 18.5rem;
-        position: absolute;
-        top: 26.4rem;
+        color: black;
+        /* margin-left: 2rem; */
     }
-    .arrow-up-close {
-        color: #fff;
-        left: 8.5rem;
-        position: absolute;
-        top: 1.55rem;
+    .rotate {
+        transform: rotate(180deg);
     }
+
     .hidden-sort li {
         background: #901c1c;
         color: #fff;
@@ -527,42 +518,48 @@ aside button,
         padding: 0.625rem 1.25rem;
     }
     .sort-btn {
-        align-items: center;
-        background: #901c1c;
-        border: none;
-        border-radius: 10px;
-        color: #fff;
         display: flex;
+        justify-content: flex-start;
+        width: 10.2rem;
+        background: #901c1c;
+        color: #fff;
+        padding: .625rem 1.25rem;
+        border-radius: 10px;
+        border: none;
+        align-items: center;
         font-size: 1rem;
         font-weight: 500;
-        justify-content: flex-start;
-        left: 11rem;
-        padding: .625rem 1.25rem;
-        position: absolute;
-        top: 25.6rem;
-        width: 10rem;
+    }
+    .sort-wrapper{
+     display: inline;
+    }
+    .sort-wrapper>i{
+        position: fixed;
+        color: #525252;
     }
     .works-sort {
-        display: block;
+        display: inline-flex;
+        justify-content: center;
         margin-left: 2rem;
         margin-top: 2.5rem;
+        height: auto;
     }
-    .works-sort>span {
+    .works-sort>p {
         font-size: 1.2rem;
         font-weight: 700;
-        margin-right: 1.5625rem;
+        margin: .4rem 1.5625rem 0px 0px;
     }
     ul.hidden-sort {
+        display: none;
+        position: fixed;
+        width: 10rem;
+        height: 10rem;
         border-radius: 5px;
         color: #fff;
-        display: none;
-        left: 167px;
-        padding: 0;
-        position: absolute;
-        top: 393px;
-        width: 10.6rem;
-        height: 10rem;
+        margin: 0;
         z-index: 10;
+        font-size: 1rem;
+        font-weight: 500;
     }
     ul.hidden-sort li:hover {
         cursor: pointer;
@@ -574,13 +571,16 @@ aside button,
     }
 }
 
+@media (max-width: 900px) {
+
+}
+
 @media (max-width: 770px) {
     form{
         width: 80%;
         top: 13%;
     }
 }
-
 
 @media (min-width: 600px) {
 

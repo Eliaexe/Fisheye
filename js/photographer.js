@@ -96,7 +96,7 @@ class postFactory {
             <h2 class="ph-work-title">${element.title}</h2>
             <p class="ph-work-price">${element.price} €</p>
             <p class="like-counter">${element.likes}</p>
-            <i class="far fa-heart heart-btn" aria-label='likes' role="button" data-value="${element.likes}" tabindex="0"></i>
+            <i class="far fa-heart heart-btn" aria-labelledby='likes' role="button" data-value="${element.likes}" tabindex="0"></i>
         </div>
         `
         postTag.innerHTML = post
@@ -139,9 +139,10 @@ class DropDown {
         button.forEach(e => {
             e.addEventListener('click', () => {
                 list.style.display = "block"
+                icon1.classList.add('rotate')
             })
         });
-        icon2.addEventListener('click', () => { list.style.display = 'none' })
+        icon2.addEventListener('click', () => { list.style.display = 'none'; })
     }
 
     value(data){
@@ -151,7 +152,7 @@ class DropDown {
 
         sortBtn.forEach(e => {
             e.addEventListener('click', () =>{
-                btn.innerHTML = e.innerText
+                btn.innerHTML = e.innerText 
                 list.style.display = "none"
             })
         })
