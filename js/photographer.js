@@ -136,24 +136,36 @@ class DropDown {
         let button = [btn, icon1]
         let list = document.getElementById("dropdownList")
         let icon2 = list.children[0]
+        let box = document.querySelector('.button-wrapper')
+
         button.forEach(e => {
             e.addEventListener('click', () => {
                 list.style.display = "block"
                 icon1.classList.add('rotate')
+                box.classList.add('border-modified')
             })
         });
-        icon2.addEventListener('click', () => { list.style.display = 'none'; })
+                
+        icon2.addEventListener('click', () => { 
+            list.style.display = 'none'
+            box.classList.remove('border-modified') 
+            icon1.classList.remove('rotate')
+        })
     }
 
     value(data){
         let sortBtn = Array.from(document.querySelectorAll('[role="option"]'));
         let btn = document.getElementById("dropdownBtn");
         let list = document.getElementById('dropdownList');
+        let box = document.querySelector('.button-wrapper')
+        let icon1 = document.getElementById("dropdownIcon")
 
         sortBtn.forEach(e => {
             e.addEventListener('click', () =>{
                 btn.innerHTML = e.innerText 
                 list.style.display = "none"
+                box.classList.remove('border-modified')
+                icon1.classList.remove('rotate')
             })
         })
     }

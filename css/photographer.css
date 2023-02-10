@@ -208,10 +208,6 @@ header img {
     padding: 5px 2px 0 2px;
     max-height: 130px;
 }
-#dropdownIcon2{
-    /* font-size: 1rem;
-    padding: 2px; */
-}
 
 /* FORM */
 
@@ -503,8 +499,7 @@ aside button,
         margin-bottom: 1rem;
     }
     .arrow-down-open {
-        color: black;
-        /* margin-left: 2rem; */
+        color: #fff;
     }
     .rotate {
         transform: rotate(180deg);
@@ -517,25 +512,39 @@ aside button,
         font-weight: 500;
         padding: 0.625rem 1.25rem;
     }
+    .button-wrapper{
+        display: flex;
+        align-items: center;
+        width: 170px;
+        background: #901c1c;
+        border-radius: 10px;
+    }
     .sort-btn {
         display: flex;
-        justify-content: flex-start;
-        width: 10.2rem;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        width: 140px;
+        height: 49px;
+        border-radius: 10px;
+
         background: #901c1c;
         color: #fff;
         padding: .625rem 1.25rem;
-        border-radius: 10px;
         border: none;
         align-items: center;
-        font-size: 1rem;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: 400;
     }
-    .sort-wrapper{
-     display: inline;
+
+    .border-modified {
+        border-radius: 10px 10px 0px 0px;
     }
+
     .sort-wrapper>i{
         position: fixed;
-        color: #525252;
+        color: #fff;
+        transition: rotate 250ms ease-out;
+
     }
     .works-sort {
         display: inline-flex;
@@ -552,9 +561,9 @@ aside button,
     ul.hidden-sort {
         display: none;
         position: fixed;
-        width: 10rem;
+        width: 166px;
         height: 10rem;
-        border-radius: 5px;
+        border-radius: 0px 0px 10px 10px;
         color: #fff;
         margin: 0;
         z-index: 10;
