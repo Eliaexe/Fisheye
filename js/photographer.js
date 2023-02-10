@@ -91,7 +91,7 @@ class postFactory {
         let postTag = document.createElement("article");
         postTag.classList.add("ph-work-elt")
         let post = `
-        <figure id="${element.id}" title="${element.title}" tabindex="0"></figure>
+        <figure id="${element.id}" title="${element.title}" tabindex="0" class="ph-media"></figure>
         <div class="ph-work-elt-text">
             <h2 class="ph-work-title">${element.title}</h2>
             <p class="ph-work-price">${element.price} €</p>
@@ -105,13 +105,13 @@ class postFactory {
 
     photoPost(element, photographer){
         let place = document.getElementById(element.id)
-        let image = `<img src="resources/img/${photographer}/${element.image}" alt="${element.title}" tabindex="-1" class="ph-media">`
+        let image = `<img src="resources/img/${photographer}/${element.image}" alt="${element.title}" tabindex="-1">`
         place.innerHTML = image
     }
 
     videoPost(element, photographer){
         let place = document.getElementById(element.id);
-        let video = `<video src="resources/img/${photographer}/${element.video}" alt="${element.title}" tabindex="-1" class="ph-media"></video>`
+        let video = `<video src="resources/img/${photographer}/${element.video}" alt="${element.title}" tabindex="-1"></video>`
         place.innerHTML = video
     }
 
@@ -137,6 +137,9 @@ class DropDown {
         let list = document.getElementById("dropdownList")
         let icon2 = list.children[0]
         let box = document.querySelector('.button-wrapper')
+
+
+        console.log(btn);
 
         button.forEach(e => {
             e.addEventListener('click', () => {
@@ -216,52 +219,72 @@ class Carousel{
         let close = document.getElementById("close");
         let back = document.getElementById("back")
         let figure = document.getElementById('figure')
+        let lightbox = document.getElementById('works-lightbox')
 
         const changeMedia = ( index ) => {
             figure.innerHTML = ''
-            let media = document.getElementById(this.index).cloneNode()
+            let media = document.getElementById(this.index).childNodes[0].cloneNode()
             if (media.nodeName == 'VIDEO') { media.controls = true }
             let figcaption = document.createElement('figcaption')
             figure.appendChild(media)
             figcaption.setAttribute('id', 'works-lightbox-name')
-            figcaption.innerText = document.getElementById(this.index).cloneNode().getAttribute("alt") 
+            figcaption.innerText = document.getElementById(this.index).childNodes[0].cloneNode().getAttribute("alt") 
             figure.appendChild(figcaption)
         }
+
 
         for (let i = 0; i < page.length; i++){
             page[i].setAttribute('id', i) 
         }
-        
-        page.forEach(e => {
-            e.addEventListener("click", () => {
-                document.getElementById('works-lightbox').style.display = 'flex';
-                this.index = Number(e.getAttribute("id"))
-                changeMedia(this.index)
-            })
-        });
 
-        back.addEventListener("click", () => {
+        const handleGoPrevius = () => {
             this.index -= 1 
             if (this.index < 0){
                 this.index += page.length
                 changeMedia(this.index)
             } else { changeMedia(this.index) }
-        })
-
-        next.addEventListener("click", () => {
+        }
+        const handleGoNext = () => {
             this.index += +1
             if (this.index > page.length - 1){
                 this.index -= page.length
                 changeMedia(this.index)
             } else { changeMedia(this.index) }
-        })
-        
-        close.addEventListener("click", () => {
-            document.getElementById('works-lightbox').style.display = 'none';
+        }
+
+        const handleExit = () => {
+            lightbox.style.display = 'none';
             page.forEach( e => {
                 if (e.nodeName == 'VIDEO' && e.controls == true) { e.controls = false }
             })
-        })
+        }
+        
+        const handleOpenLightBox = (e) => {
+            lightbox.style.display = 'flex';
+            this.index = Number(e.getAttribute("id"))
+            changeMedia(this.index)
+        }
+        page.forEach(e => { e.addEventListener("click", () => { handleOpenLightBox(e) })});
+        back.addEventListener("click", () => { handleGoPrevius() })
+        next.addEventListener("click", () => { handleGoNext() })
+        close.addEventListener("click", () => { handleExit() })
+
+        document.onkeydown = checkKey;
+        function checkKey(e) {
+            e = e || window.event;
+
+            if (e.keyCode == '38' || e.keyCode == '39' ) {
+                next.click()
+            }
+            else if (e.keyCode == '40' || e.keyCode == '37') {
+                back.click()
+            } else if (e.keyCode == '13') {
+                document.activeElement.click()
+            } else if (e.keyCode == '27') {
+                close.click()
+            }
+
+        }
     }
 }
 
@@ -286,7 +309,7 @@ class Like{
         document.getElementById("prices ").innerHTML += (photographer[0].price) + "€/Jour"
     }
 
-    click(){
+    clickLike(){
         let heart = document.querySelectorAll(".heart-btn")
         let card = document.getElementById("likes")
         heart.forEach(e => {
@@ -294,14 +317,12 @@ class Like{
                 if(e.classList.contains("clicked")){
                     e.classList.replace("fas", "far");
                     e.classList.remove("clicked");
-                    ((e.previousElementSibling).children.item(0)).innerText = +(e.previousElementSibling).children.item(0).innerText -1
-                    card.innerText = +card.innerText - 1;
-                    
+                    e.previousElementSibling.innerText = +e.previousElementSibling.innerText -1
+                    card.innerText = +card.innerText - 1;                    
                 } else {
                     e.classList.add("clicked");
                     e.classList.replace("far", "fas");
-                    ((e.previousElementSibling).children.item(0)).innerText = +(e.previousElementSibling).children.item(0).innerText +1;
-                    
+                    e.previousElementSibling.innerText = +e.previousElementSibling.innerText +1;
                     card.innerText = +card.innerText + 1;
                 }
             })
@@ -334,7 +355,7 @@ function app() {
             // LIKE
             new Like().getNumbers(items);
             new Like().card(data);
-            new Like().click()
+            new Like().clickLike()
 
     }).catch(() => {
         console.error('Failed to load Api');
