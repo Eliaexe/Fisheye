@@ -26,7 +26,6 @@ nav img {
     width: 10rem;
 }
 
-
 /* HEADER */
 
 header {
@@ -52,13 +51,7 @@ header {
     margin: 0;
 }
 
-/* header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-} */
-
-header button {
+#ph-contact{
     background: #901c1c;
     border: none;
     border-radius: 5px;
@@ -70,11 +63,6 @@ header button {
     height: 35px;
     position: fixed;
     width: 170px;
-}
-
-header button:hover {
-    background: #651414;
-    transform: scale(1.05);
 }
 
 header img {
@@ -250,21 +238,23 @@ form {
     transform: translateX(-50%);
     width: 100%;
     z-index: 11;
-    
+}
 
+form header {
+    padding: 32px 0px;
 }
 
 form #ph-form-name {
     display: block;
 }
 
-form .close-form-icon {
-    color: #fff;
+form #close-form {
+    color: black;
     font-size: 2em;
     margin-top: .6rem;
 }
 
-form .close-form-icon:hover,
+form #close-form:hover,
 form .form-submit:hover {
     cursor: pointer;
 }
@@ -293,6 +283,7 @@ form header {
     display: flex;
     justify-content: space-between;
     margin: -.3rem .3rem 1.25rem 0;
+    background-color: #db8876;
 }
 
 form input,
@@ -427,7 +418,7 @@ aside button,
 }
 
 @media (max-width: 1200px) {
-    header button {
+    #ph-contact{
         left: 0;
         margin-left: auto;
         margin-right: auto;
@@ -437,7 +428,7 @@ aside button,
 }
 
 @media (min-width: 1200px) {
-    header button {
+    #ph-contact{
         left: 0;
         margin-right: auto;
         right: 0;
@@ -447,7 +438,7 @@ aside button,
         background-color: #FAFAFA;
         margin: 0 20px;
     }
-    header button {
+    #ph-contact{
         height: 55px;
         left: 42rem;
         position: absolute;
@@ -525,13 +516,13 @@ aside button,
         display: flex;
         justify-content: flex-end;
         flex-direction: row-reverse;
-        width: 130px;
+        width: 125px;
         height: 49px;
         border-radius: 10px;
 
         background: #901c1c;
         color: #fff;
-        padding-left: .5rem;
+        padding-left: 12px;
         border: none;
         align-items: center;
         font-size: 16px;
@@ -593,7 +584,7 @@ aside button,
 
 @media (min-width: 600px) {
 
-    form .close-form-icon {
+    form #close-form {
         font-size: 2.4em;
     }
     form .form-submit {
@@ -603,6 +594,7 @@ aside button,
     }
     form h1 {
         font-size: 2.6em;
+        margin: 0;
     }
     form label,
     form input,

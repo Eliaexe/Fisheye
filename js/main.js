@@ -97,7 +97,7 @@ class HomePage {
             let article = document.createElement('article');
             article.className = photographe.tags.join(' ') + ' articlePh';
             let template = `
-                <a href="photographer.html?id=${photographe.id}" title="${photographe.name} profile" tabindex="1">
+                <a href="photographer.html?id=${photographe.id}" title="${photographe.name} profile" tabindex="1" aria-label="Link to the ${photographe.name} photographer page">
                     <figure>
                         <img src="resources/img/portrait/${photographe.portrait}" alt="${photographe.alt}">
                         <figcaption class="name">${photographe.name}</figcaption>

@@ -14,29 +14,27 @@
 
 <body>
     <nav>
-        <a href="index.html" title="HomePage"><img src="https://res.cloudinary.com/dps3eww2i/image/upload/v1609005020/P6-img/logo.png" alt="FishEye Home Page"></a>
+        <a href="index.html" title="HomePage" aria-label="Link to FishEye HomePage"><img src="https://res.cloudinary.com/dps3eww2i/image/upload/v1609005020/P6-img/logo.png" alt="FishEye Logo"></a>
     </nav>
     
-    <header id="ph-profil-header" aria-label="photographer information">
- 
-    </header>
+    <header id="ph-profil-header" aria-label="photographer information"></header>
     <main id="main">
         <!-- DROPDOWN -->
         <div class="works-sort">
             <p id="sort-text">Trier par</p>
             <div id="sort-wrapper">
-                <button class="button-wrapper">
+                <button class="button-wrapper" aria-label="Media sort" aria-haspopup="listbox">
                     <div id="dropdownBtn" class="sort-btn" aria-haspopup="listbox">Popularité</div>
-                    <i class="fas fa-chevron-down arrow-down-open" id="dropdownIcon" role='button'></i>
+                    <i class="fas fa-chevron-down arrow-down-open" id="dropdownIcon" role='button' aria-hidden="true"></i>
                 </button>
                 <ul id="dropdownList" class="hidden-sort" role="listbox">
-                    <li class="sort" role='option'>Popularité</li>
-                    <li class="sort" role='option'>Date</li>
-                    <li class="sort" role='option'>Tître</li>
+                    <li class="sort" role='option' tabindex="0">Popularité</li>
+                    <li class="sort" role='option' tabindex="0">Date</li>
+                    <li class="sort" role='option' tabindex="0">Tître</li>
                 </ul>
             </div>
         </div>
-        <section id="ph-works">
+        <section id="ph-works" aria-label="Collection of photographer images">
             <h2 class="invisible">.</h2>
         </section>
 
@@ -46,19 +44,16 @@
         <aside role="dialog" id="form-dialog" aria-label="contact me form" aria-labelledby="form-title" aria-hidden="true">
             <form action="#" method="POST" id="contact-form">
                 <header aria-label="contact form header">
-                    <h1 id="form-title">
-                        <span>Contactez-moi</span>
-                        <span id="ph-form-name"></span>
-                    </h1>
-                    <button id="close-btn" title="Close form" type="button">
-                        <span class="fas fa-times close-form-icon" id="close-form" aria-hidden="true"></span>
-                    </button>
+                    <div class="headText">
+                        <h1 id="form-title">Contactez-moi</h1>
+                        <h1 id="ph-form-name"></h1>
+                    </div>
+                    <button class="fas fa-times" id="close-form" title="Close form" type="button" aria-label="Exit the contact form"></button>
                 </header>
                 <!-- FIRST NAME -->
                 <div class="formData" id="fn-err" data-error="Vous devez entrer votre prénom." data-error-visible="false">
                     <label for="first-name" id="label-firstname">Prénom</label>
                     <input name="first-name" id="first-name" aria-labelledby="label-firstname" placeholder="Prénom">
-
                 </div>
                 <!-- LAST NAME -->
                 <div class="formData" id="ln-err" data-error="Vous devez entrer votre nom." data-error-visible="false">
@@ -82,11 +77,11 @@
         <!--LIGHTBOX-->
         <aside id="works-lightbox" aria-hidden="true" style="display: none;">
             <article id="lightbox-body">
-                <button class="fas fa-times close-lightbox-icon" role="button" title="Close dialog" id="close"></button>
+                <button class="fas fa-times close-lightbox-icon" role="button" title="Close dialog" id="close" aria-label="Exit from the image viewer"></button>
                 <div class="media-container">
-                    <button class="fas fa-chevron-left left-arrow-lightbox" role="button" title="Previous image" id="back"></button>
+                    <button class="fas fa-chevron-left left-arrow-lightbox" role="button" title="Previous image" id="back" aria-label="Go to the previus image"></button>
                     <figure class="medias" id="figure"></figure>
-                    <button class="fas fa-chevron-right right-arrow-lightbox" role="button" title="Next image" id="next"></button>
+                    <button class="fas fa-chevron-right right-arrow-lightbox" role="button" title="Next image" id="next" aria-label="Go to the next image"></button>
                 </div>
             </article>
         </aside>
