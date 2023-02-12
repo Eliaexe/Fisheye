@@ -168,11 +168,6 @@ header img {
     display: flex;
 }
 
-.fa-heart::before{
-    display: hidden;
-}
-
-
 /* DROPDOWN */
 
 .works-sort {
@@ -263,10 +258,11 @@ form .form-submit {
     align-self: center;
     background: #901c1c;
     color: #fff;
-    font-size: 1em;
+    font-size: 1.2em;
     height: 2.2rem;
     margin-top: 1.6rem;
     width: 10.6rem;
+    border-radius: 5px;
 }
 
 form button {
@@ -276,6 +272,11 @@ form button {
 
 form h1 {
     font-size: 2.2em;
+    font-weight: 400;
+}
+.headText h2 {
+    margin: 0;
+    font-size: 2rem;
     font-weight: 400;
 }
 
@@ -362,7 +363,7 @@ input[data-error]::after {
     font-size: 2rem;
 }
 
-aside {
+.back-hovered {
     background-color: rgba(255, 255, 255, 0.92);        
     display: none;
     height: 100%;
@@ -373,7 +374,7 @@ aside {
     z-index: 2;
 }
 
-aside button,
+.back-hovered button,
 #dropdownIcon2{
     background-color: rgba(255, 255, 255, 0);
     border: solid black 0px;
@@ -512,6 +513,12 @@ aside button,
         border: none;
     }
 
+    #dropdownIcon{
+        color: #fff;
+        background-color: #901c1c;
+        border: solid 1px #901c1c;
+    }
+
     .sort-btn {
         display: flex;
         justify-content: flex-end;
@@ -523,6 +530,8 @@ aside button,
         background: #901c1c;
         color: #fff;
         padding-left: 12px;
+        margin-top: 0;
+        margin-bottom: 0;
         border: none;
         align-items: center;
         font-size: 16px;
@@ -533,10 +542,6 @@ aside button,
         border-radius: 10px 10px 0px 0px;
     }
 
-    .sort-wrapper>i{
-        position: fixed;
-        color: #fff;
-    }
     .works-sort {
         display: inline-flex;
         justify-content: center;
@@ -591,6 +596,7 @@ aside button,
         display: block;
         align-self: flex-start;
         height: 4.4rem;
+        background-color: #901c1c;
     }
     form h1 {
         font-size: 2.6em;

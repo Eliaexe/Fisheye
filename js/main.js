@@ -118,20 +118,8 @@ class HomePage {
 }
 
 
-
 function app() {
     new Api().getDataFishEye().then((data) => {
-        if (window.location.pathname.includes("/photographers.html")) {
-            // PHOTOGRAPHER PROFIL HEADER
-            new PhotographerProfil().displayPhotographerProfil(data);
-
-            // DROPDOWN MENU
-            new DropDownMenu().dropDown(data);
-
-            //PHOTOGRAPHER GALLERY & LIKES BOX
-            new MediaBuilder().photographersMedias(data);
-            return
-        }
         // HOMEPAGE (PHOTOGRAPHERS, SCROLL, FILTER)
         new HomePage().display(data);
     }).catch(() => {

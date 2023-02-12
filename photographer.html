@@ -24,8 +24,8 @@
             <p id="sort-text">Trier par</p>
             <div id="sort-wrapper">
                 <button class="button-wrapper" aria-label="Media sort" aria-haspopup="listbox">
-                    <div id="dropdownBtn" class="sort-btn" aria-haspopup="listbox">Popularité</div>
-                    <i class="fas fa-chevron-down arrow-down-open" id="dropdownIcon" role='button' aria-hidden="true"></i>
+                    <span id="dropdownBtn" class="sort-btn" aria-haspopup="listbox">Popularité</span>
+                    <span class="fas fa-chevron-down arrow-down-open" id="dropdownIcon" aria-hidden="true"></span>
                 </button>
                 <ul id="dropdownList" class="hidden-sort" role="listbox">
                     <li class="sort" role='option' tabindex="0">Popularité</li>
@@ -41,24 +41,23 @@
         <!-- BOX -->
         <div id="box"></div>
         <!--MODAL-->
-        <aside role="dialog" id="form-dialog" aria-label="contact me form" aria-labelledby="form-title" aria-hidden="true">
-            <form action="#" method="POST" id="contact-form">
+        <div id="form-dialog" class="back-hovered">
+            <form action="#" method="POST" id="contact-form" aria-label="The form to contact the photographer">
                 <header aria-label="contact form header">
-                    <div class="headText">
+                    <div class="headText" id="headForm">
                         <h1 id="form-title">Contactez-moi</h1>
-                        <h1 id="ph-form-name"></h1>
                     </div>
                     <button class="fas fa-times" id="close-form" title="Close form" type="button" aria-label="Exit the contact form"></button>
                 </header>
                 <!-- FIRST NAME -->
                 <div class="formData" id="fn-err" data-error="Vous devez entrer votre prénom." data-error-visible="false">
                     <label for="first-name" id="label-firstname">Prénom</label>
-                    <input name="first-name" id="first-name" aria-labelledby="label-firstname" placeholder="Prénom">
+                    <input name="first-name" id="first-name" aria-labelledby="label-firstname" placeholder="Antoine">
                 </div>
                 <!-- LAST NAME -->
                 <div class="formData" id="ln-err" data-error="Vous devez entrer votre nom." data-error-visible="false">
                     <label for="last-name" id="label-lastname">Nom</label>
-                    <input name="last-name" id="last-name" aria-labelledby="label-lastname" placeholder="Nom">
+                    <input name="last-name" id="last-name" aria-labelledby="label-lastname" placeholder="Dubois">
                 </div>
                 <!-- EMAIL -->
                 <div class="formData" id="e-err" data-error="Vous devez entrer un email valide." data-error-visible="false">
@@ -68,23 +67,23 @@
                 <!-- MESSAGE -->
                 <div class="formData" id="m-err" data-error="Vous devez entrer votre message." data-error-visible="false">
                     <label for="message" id="label-message">Votre message</label>
-                    <textarea name="message" id="message" cols="20" rows="5" aria-labelledby="label-message" placeholder="Votre message..."></textarea>
+                    <textarea name="message" id="message" cols="20" rows="5" aria-labelledby="label-message" placeholder="Bonjour..."></textarea>
                 </div>
                 <!-- SUBMIT -->
-                <input type="button" id="submit" value="Envoyer" class="form-submit" title="Send">
+                <button type="button" id="submit" class="form-submit" title="Send" aria-label="submit the contact form">Envoyer</button>>
             </form>
-        </aside>
+        </div>
         <!--LIGHTBOX-->
-        <aside id="works-lightbox" aria-hidden="true" style="display: none;">
-            <article id="lightbox-body">
-                <button class="fas fa-times close-lightbox-icon" role="button" title="Close dialog" id="close" aria-label="Exit from the image viewer"></button>
+        <div id="works-lightbox" class="back-hovered" aria-hidden="true" style="display: none;">
+            <div id="lightbox-body">
+                <button class="fas fa-times close-lightbox-icon" title="Close dialog" id="close" aria-label="Exit from the image viewer"></button>
                 <div class="media-container">
-                    <button class="fas fa-chevron-left left-arrow-lightbox" role="button" title="Previous image" id="back" aria-label="Go to the previus image"></button>
+                    <button class="fas fa-chevron-left left-arrow-lightbox" title="Previous image" id="back" aria-label="Go to the previus image"></button>
                     <figure class="medias" id="figure"></figure>
-                    <button class="fas fa-chevron-right right-arrow-lightbox" role="button" title="Next image" id="next" aria-label="Go to the next image"></button>
+                    <button class="fas fa-chevron-right right-arrow-lightbox" title="Next image" id="next" aria-label="Go to the next image"></button>
                 </div>
-            </article>
-        </aside>
+            </div>
+        </div>
     </main>
 </body>
 </html>

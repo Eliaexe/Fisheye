@@ -37,9 +37,12 @@ class PhotographerHome {
         let btn = document.getElementById("ph-contact");
         let form = document.getElementById("form-dialog");
         let closeBtn = document.getElementById("close-form")
-        let namePlace = document.getElementById('ph-form-name')
+        let nameForm = document.getElementById('headForm')
+        let newHeading = document.createElement('h2');
+        
+        newHeading.innerText = document.getElementById('ph-name').innerText;
+        nameForm.appendChild(newHeading);
 
-        namePlace.innerText += document.getElementById('ph-name').innerText 
         btn.addEventListener("click", () => {
             form.style.display="block";
         })
@@ -52,24 +55,23 @@ class PhotographerHome {
         let prenom = document.getElementById("first-name");
         let nom = document.getElementById("last-name");
         let email = document.getElementById("email");
-        let message = document.getElementById("message")
         let fnErr = document.getElementById("fn-err")
         let lnErr = document.getElementById("ln-err")
         let eErr = document.getElementById("e-err")
         let submit = document.getElementById("submit")
 
         const firstSecondNamePattern = /^([a-zA-Z ]){2,30}$/;
-        const emailPattern = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,})$/;
+        const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
         function controll(pattern, campo, errore) {
             submit.addEventListener('click', () => {
                 errore.setAttribute("data-error-visible", false)
                 if (pattern.test(campo.value)) {
                     errore.setAttribute("data-error-visible", false)
-                campo.classList.add("ok")
+                    campo.classList.add("ok")
                 } else {
                     errore.setAttribute("data-error-visible", true)
-                campo.classList.remove("ok")
+                    campo.classList.remove("ok")
                 }
             })
         }
@@ -119,7 +121,6 @@ class postFactory {
     }
 
     bulidingPost(element){
-        const id = window.location.search.split('id=')[1];
         let photographer = document.getElementById("ph-name").firstChild.nodeValue
         element.forEach(element => {
             this.formatPost(element)
@@ -155,7 +156,7 @@ class DropDown {
         icon2.addEventListener('click', () => { handleCloseDropDown() })
     }
 
-    value(data){
+    value(){
         let sortBtn = Array.from(document.querySelectorAll('[role="option"]'));
         let btn = document.getElementById("dropdownBtn");
         let list = document.getElementById('dropdownList');
@@ -216,10 +217,11 @@ class Carousel{
         let page = document.querySelectorAll(".ph-media")
         let close = document.getElementById("close");
         let back = document.getElementById("back")
+        let next = document.getElementById("next")
         let figure = document.getElementById('figure')
         let lightbox = document.getElementById('works-lightbox')
 
-        const changeMedia = ( index ) => {
+        const changeMedia = () => {
             figure.innerHTML = ''
             let media = document.getElementById(this.index).childNodes[0].cloneNode()
             if (media.nodeName == 'VIDEO') { media.controls = true }
@@ -336,9 +338,7 @@ function app() {
             // PHOTOGRAPHER PROFIL HEADER
             new PhotographerHome().display(data);
             // DATA
-            const id = window.location.search.split('id=')[1];
             let items = new Disposition().order(data) 
-
             // DROPDOWN MENU
             new DropDown().dropDown();
             // BUILDING POST
