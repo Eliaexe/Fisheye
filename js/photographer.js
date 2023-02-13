@@ -51,6 +51,7 @@ class PhotographerHome {
             form.style.display="none";
         })
     }
+
     controllData(){
         let prenom = document.getElementById("first-name");
         let nom = document.getElementById("last-name");
@@ -232,7 +233,6 @@ class Carousel{
             figure.appendChild(figcaption)
         }
 
-
         for (let i = 0; i < page.length; i++){
             page[i].setAttribute('id', i) 
         }
@@ -269,6 +269,7 @@ class Carousel{
         back.addEventListener("click", () => { handleGoPrevius() })
         next.addEventListener("click", () => { handleGoNext() })
         close.addEventListener("click", () => { handleExit() })
+
 
         document.onkeydown = checkKey;
         function checkKey(e) {
