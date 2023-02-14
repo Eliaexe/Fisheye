@@ -27,10 +27,10 @@
                     <span id="dropdownBtn" class="sort-btn" aria-haspopup="listbox">Popularité</span>
                     <span class="fas fa-chevron-down arrow-down-open" id="dropdownIcon" aria-hidden="true"></span>
                 </button>
-                <ul id="dropdownList" class="hidden-sort" role="listbox">
-                    <li class="sort" role='option' tabindex="0">Popularité</li>
-                    <li class="sort" role='option' tabindex="0">Date</li>
-                    <li class="sort" role='option' tabindex="0">Tître</li>
+                <ul id="dropdownList" class="hidden-sort focusable" role="listbox">
+                    <li class="sort focusable" role='option' tabindex="0">Popularité</li>
+                    <li class="sort focusable" role='option' tabindex="0">Date</li>
+                    <li class="sort focusable" role='option' tabindex="0">Tître</li>
                 </ul>
             </div>
         </div>
@@ -47,7 +47,7 @@
                     <div class="headText" id="headForm">
                         <h1 id="form-title">Contactez-moi</h1>
                     </div>
-                    <button class="fas fa-times" id="close-form" title="Close form" type="button" aria-label="Exit the contact form"></button>
+                    <button class="fas fa-times focusTrigger" id="close-form" title="Close form" type="button" aria-label="Exit the contact form"></button>
                 </header>
                 <!-- FIRST NAME -->
                 <div class="formData" id="fn-err" data-error="Vous devez entrer votre prénom." data-error-visible="false">
@@ -76,11 +76,11 @@
         <!--LIGHTBOX-->
         <div id="works-lightbox" class="back-hovered" aria-hidden="true" style="display: none;">
             <div id="lightbox-body">
-                <button class="fas fa-times close-lightbox-icon" title="Close dialog" id="close" aria-label="Exit from the image viewer" tabindex="0"></button>
+                <button class="fas fa-times close-lightbox-icon focusTrigger" title="Close dialog" id="close" aria-label="Exit from the image viewer"></button>
                 <div class="media-container">
-                    <button class="fas fa-chevron-left left-arrow-lightbox" title="Previous image" id="back" aria-label="Go to the previus image" tabindex="0"></button>
+                    <button class="fas fa-chevron-left left-arrow-lightbox" title="Previous image" id="back" aria-label="Go to the previus image"></button>
                     <figure class="medias" id="figure"></figure>
-                    <button class="fas fa-chevron-right right-arrow-lightbox" title="Next image" id="next" aria-label="Go to the next image" tabindex="0"></button>
+                    <button class="fas fa-chevron-right right-arrow-lightbox" title="Next image" id="next" aria-label="Go to the next image"></button>
                 </div>
             </div>
         </div>

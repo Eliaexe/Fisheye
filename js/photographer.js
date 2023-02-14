@@ -27,7 +27,7 @@ class PhotographerHome {
                     <p class="ph-tagline">${photographers[0].tagline}</p>
                     <div id="tagsContainer"> ${photographers[0].tags.map(tag => `<p class="ph-tags">#${tag}</p>`).join(" ")} </div>
                 </div>
-                <button id="ph-contact" title='Contact Me' aria-label="Open the contact form modal">Contactez-moi</button>
+                <button class="focusable" id="ph-contact" title='Contact Me' aria-label="Open the contact form modal">Contactez-moi</button>
                 <img src="resources/img/portrait/${photographers[0].portrait}" alt="${photographers[0].alt}">
             `
 
@@ -97,12 +97,12 @@ class postFactory {
         let postTag = document.createElement("article");
         postTag.classList.add("ph-work-elt")
         let post = `
-        <figure id="${element.id}" title="${element.title}" tabindex="0" class="ph-media" aria-label="The name of the image is ${element.title}"></figure>
+        <figure id="${element.id}" title="${element.title}" tabindex="0" class="ph-media focusable" aria-label="The name of the image is ${element.title}"></figure>
         <div class="ph-work-elt-text">
             <h2 class="ph-work-title">${element.title}</h2>
             <p class="ph-work-price">${element.price} €</p>
             <p class="like-counter">${element.likes}</p>
-            <i class="far fa-heart heart-btn" aria-label='like button' role="button" data-value="${element.likes}" tabindex="0"></i>
+            <i class="far fa-heart heart-btn focusable" aria-label='like ${element.title}' role="button" data-value="${element.likes}" tabindex="0"></i>
         </div>
         `
         postTag.innerHTML = post
@@ -265,11 +265,16 @@ class Carousel{
             changeMedia(this.index)
         }
 
+        const handleFocus = () => {
+            document.querySelectorAll('.focusable').forEach(e => {
+                e.tabIndex = -1;
+            });
+        }
+
         page.forEach(e => { e.addEventListener("click", () => { handleOpenLightBox(e) })});
         back.addEventListener("click", () => { handleGoPrevius() })
         next.addEventListener("click", () => { handleGoNext() })
         close.addEventListener("click", () => { handleExit() })
-
 
         document.onkeydown = checkKey;
         function checkKey(e) {
@@ -282,10 +287,12 @@ class Carousel{
                 back.click()
             } else if (e.keyCode == '13') {
                 document.activeElement.click()
+                handleFocus()
             } else if (e.keyCode == '27') {
                 close.click()
+            } else if (e.keyCode == '9'){
+                console.log(document.activeElement);
             }
-
         }
     }
 }
@@ -356,7 +363,6 @@ function app() {
             new Like().getNumbers(items);
             new Like().card(data);
             new Like().clickLike()
-
     }).catch(() => {
         console.error('Failed to load Api');
     })
