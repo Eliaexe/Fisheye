@@ -45,10 +45,12 @@ class PhotographerHome {
 
         btn.addEventListener("click", () => {
             form.style.display="block";
+            new Carousel().handleFocus(false)
         })
 
         closeBtn.addEventListener("click", () => {
             form.style.display="none";
+            new Carousel().handleFocus(true, '0')
         })
     }
 
@@ -97,7 +99,7 @@ class postFactory {
         let postTag = document.createElement("article");
         postTag.classList.add("ph-work-elt")
         let post = `
-        <figure id="${element.id}" title="${element.title}" tabindex="0" class="ph-media focusable" aria-label="The name of the image is ${element.title}"></figure>
+        <a><figure id="${element.id}" title="${element.title}" tabindex="0" class="ph-media focusable" aria-label="The name of the image is ${element.title}"></figure>
         <div class="ph-work-elt-text">
             <h2 class="ph-work-title">${element.title}</h2>
             <p class="ph-work-price">${element.price} €</p>
@@ -214,6 +216,18 @@ class Carousel{
         this.index = +0;
     }
 
+    handleFocus = (value, x) => {
+        let box = document.querySelectorAll('.focusable')
+        box.forEach(e => {
+            if (value == false) {
+                e.tabIndex = -1;
+            } else if (value == true) {
+                e.tabIndex = 0;
+                document.getElementById(x).focus()
+            }
+        })        
+    }
+
     init(){
         let page = document.querySelectorAll(".ph-media")
         let close = document.getElementById("close");
@@ -260,17 +274,13 @@ class Carousel{
         }
         
         const handleOpenLightBox = (e) => {
+            this.handleFocus(false)
             lightbox.style.display = 'flex';
             this.index = Number(e.getAttribute("id"))
             changeMedia(this.index)
+            close.addEventListener("click", () => {this.handleFocus(true, e.id)})
         }
-
-        const handleFocus = () => {
-            document.querySelectorAll('.focusable').forEach(e => {
-                e.tabIndex = -1;
-            });
-        }
-
+        
         page.forEach(e => { e.addEventListener("click", () => { handleOpenLightBox(e) })});
         back.addEventListener("click", () => { handleGoPrevius() })
         next.addEventListener("click", () => { handleGoNext() })
@@ -287,7 +297,6 @@ class Carousel{
                 back.click()
             } else if (e.keyCode == '13') {
                 document.activeElement.click()
-                handleFocus()
             } else if (e.keyCode == '27') {
                 close.click()
             } else if (e.keyCode == '9'){
