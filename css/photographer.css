@@ -190,7 +190,7 @@ header img {
 #dropdownList {
     background-color: #901c1c;
     padding: 5px 2px 0 2px;
-    max-height: 130px;
+    max-height: 100px;
 }
 
 /* FORM */
@@ -488,7 +488,7 @@ form .form-submit{
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 800px) {
 
     .ph-city {
         font-size: 20px;
@@ -499,10 +499,7 @@ form .form-submit{
         font-weight: 400;
         margin-bottom: 1rem;
     }
-    header {
-        background: #fafafa;
-        padding: 2rem;
-    }
+
     header img {
         height: 200px;
         width: 200px;
@@ -511,6 +508,13 @@ form .form-submit{
         color: #525252;
         font-size: 15px;
         margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 300px) {
+    header {
+        background: #fafafa;
+        padding: 2rem;
     }
     .arrow-down-open {
         color: #fff;
@@ -578,7 +582,8 @@ form .form-submit{
     }
     ul.hidden-sort {
         display: none;
-        position: fixed;
+        position: absolute;
+        z-index: 999;
         width: 166px;
         height: 10rem;
         border-radius: 0px 0px 10px 10px;

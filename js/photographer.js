@@ -33,6 +33,7 @@ class PhotographerHome {
 
         section.innerHTML = template;
     }
+
     openModal(){
         let btn = document.getElementById("ph-contact");
         let form = document.getElementById("form-dialog");
@@ -157,6 +158,8 @@ class DropDown {
 
         box.addEventListener('click', () => { handleOpenDropDown() })
         icon2.addEventListener('click', () => { handleCloseDropDown() })
+        
+        this.choise()
     }
 
     value(){
@@ -168,12 +171,29 @@ class DropDown {
 
         sortBtn.forEach(e => {
             e.addEventListener('click', () =>{
-                btn.innerHTML = e.innerText 
+                let mainValue = btn.innerHTML
+                let newValue = e.innerText
+                e.innerHTML = mainValue
+                btn.innerHTML = newValue
                 list.style.display = "none"
                 box.classList.remove('border-modified')
                 icon1.classList.remove('rotate')
             })
         })
+    }
+
+    choise(){
+        let choises = ['Popularité', 'Date', 'Tître']
+        let list = document.getElementById('dropdownList');
+        let btn = document.getElementById("dropdownBtn");
+
+        btn.textContent =''
+        list.children[0].textContent = ''
+        list.children[0].textContent = ''
+
+        btn.textContent = `${choises[0]}`
+        list.children[0].textContent = `${choises[1]}`
+        list.children[1].textContent = `${choises[2]}`
     }
 }
 
