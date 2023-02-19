@@ -29,6 +29,15 @@ header {
 
 header img {
     width: 10rem;
+    /* height: 3rem; */
+}
+
+header a {
+    width: 15rem;
+    /* height: 5rem;   
+    display: flex;
+    justify-content: center;
+    background-color: #000; */
 }
 
 header nav ul {
@@ -171,19 +180,10 @@ section img {
     overflow: hidden;
     width: 12.5rem;
 }
-/* 
-section img:hover, section img:focus {
-    box-shadow: 0 0 .8rem rgba(134, 134, 134, 0.432);
-    cursor: pointer;
-    transition: all .5s;
-    transform: scale(1.2);
-} */
 
 figure:focus{
     border: #901C1C solid 2px ;
 }
-
-
 
 /* MEDIAQUERY */
 
