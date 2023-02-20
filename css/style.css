@@ -8,13 +8,11 @@ html {
     font-family: 'DM Sans', sans-serif;
 }
 
-
 /* HEADER */
 
 h1 {
     color: #901C1C;
     font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
     width: fit-content;
 }
 
@@ -28,16 +26,7 @@ header {
 }
 
 header img {
-    width: 10rem;
-    /* height: 3rem; */
-}
-
-header a {
     width: 15rem;
-    /* height: 5rem;   
-    display: flex;
-    justify-content: center;
-    background-color: #000; */
 }
 
 header nav ul {
@@ -53,7 +42,6 @@ header nav ul {
     right: 0;
     text-align: center;
     top: 90px;
-
 }
 
 nav img {
@@ -69,9 +57,10 @@ nav ul li:hover {
 }
 
 ul li:hover,
-.actived {
+.actived{
     background-color: #901C1C;
     color: #fff;
+    cursor: pointer;
 }
 
 ul li {
@@ -90,7 +79,6 @@ ul li {
 a {
     text-decoration: none;
 }
-
 
 /* BUTTON 'Passer au contenu' */
 
@@ -119,7 +107,6 @@ main>a:hover {
     background: #901C1C;
     color: #fff;
 }
-
 
 /* PHOTOGRAPHER CARD */
 
@@ -187,15 +174,38 @@ figure:focus{
 
 /* MEDIAQUERY */
 
-@media screen and (min-width: 1170px) {
-    h1 {
-        font-size: 1.8em;
+@media  screen and (max-width: 600px) {
+    body {
+        margin: 0rem .5rem;
     }
+}
+
+@media  screen and (max-width: 540px) {
+    h1 {
+        font-size: 20px;
+        margin-right: 1.2rem;
+    }
+    header img {
+        width: 12.5rem;
+    }
+}
+
+@media  screen and (max-width: 400px) {
+    body {
+        margin: 0;
+    }
+    h1 {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 1170px) {
+
     header {
         margin-top: 0;
     }
     header img {
-        width: 12.5rem;
+        width: 15rem;
     }
     header nav a {
         margin-bottom: 0;

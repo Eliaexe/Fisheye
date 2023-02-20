@@ -1,7 +1,5 @@
 body {
-    margin: auto;
-    padding: 0 1rem;
-    max-width: 1300px;
+    margin: 0 2rem;
 }
 
 html {
@@ -19,17 +17,18 @@ nav {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 1rem;
     overflow: hidden;
 }
 
 nav img {
-    width: 10rem;
+    width: 15rem;
 }
 
 /* HEADER */
 
-header {
+header,
+#ph-profil-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,13 +55,11 @@ header {
     background: #901c1c;
     border: none;
     border-radius: 5px;
-    bottom: 28px;
     color: #fff;
     cursor: pointer;
     font-size: 1em;
     font-weight: 500;
-    height: 40px;
-    position: fixed;
+    height: 55px;
     width: 170px;
 }
 
@@ -396,11 +393,34 @@ form .form-submit{
 
 }
 
-/* BOX PRICE */
-
 #box {
-    display: none;
+    align-items: center;
+    background: #db8876;
+    border-radius: .3125rem;
+    bottom: 0;
+    display: flex;
+    font-size: 1.2em;
+    font-weight: 500;
+    height: 4.375rem;
+    justify-content: space-between;
+    padding: 0 2.1875rem;
+    position: fixed;
+    right: 2.5rem;
+    width: 18rem;
 }
+#box .fa-heart {
+    left: 4.8rem;
+    position: absolute;
+}
+
+.works-sort {
+    display: inline-flex;
+    justify-content: center;
+    margin-left: 2rem;
+    margin-top: 2.5rem;
+    height: auto;
+}
+
 
 @media (min-width: 1700px) {
     .ph-work-elt {
@@ -410,15 +430,11 @@ form .form-submit{
 }
 
 @media (min-width: 1500px) {
-    #ph-contact{
-        left: 55rem !important; 
-    }
+
 }
 
 @media (min-width: 1400px) {
-    #ph-contact{
-        left: 50rem !important; 
-    }
+
 }
 
 @media (min-width: 1300px) {
@@ -441,51 +457,37 @@ form .form-submit{
     body{
         margin: 0 2rem;
     }
-    #ph-contact{
-        left: 0;
-        margin-left: auto;
-        margin-right: auto;
-        right: 0;
-        z-index: 1;
-    }
 }
 
 @media (min-width: 1201px) {
-    #ph-contact{
-        left: 0;
-        margin-right: auto;
-        right: 0;
-        z-index: 1;
-    }
+
     header {
         background-color: #FAFAFA;
         margin: 0 20px;
     }
-    #ph-contact{
-        height: 55px;
-        left: 40rem;
-        position: absolute;
-        top: 9.8rem;
-    }
-    #box {
-        align-items: center;
-        background: #db8876;
-        border-radius: .3125rem;
-        bottom: 0;
+}
+
+@media (max-width: 930px) {
+    #ph-profil-header{
         display: flex;
-        font-size: 1.2em;
-        font-weight: 500;
-        height: 4.375rem;
+        flex-direction: column;
         justify-content: space-between;
-        padding: 0 2.1875rem;
-        position: fixed;
-        right: 2.5rem;
-        width: 18rem;
+        margin: 0rem;
     }
-    #box .fa-heart {
-        left: 4.8rem;
-        position: absolute;
+    #ph-profil-header img {
+        order: 1;
     }
+    #ph-profil-header div{
+        order: 2;
+    }
+    #ph-profil-header button {
+        margin-top: 1rem;
+        order: 3;
+    }
+    .works-sort{
+        margin: 1rem;
+    }
+
 }
 
 @media (min-width: 800px) {
@@ -516,6 +518,7 @@ form .form-submit{
         background: #fafafa;
         padding: 2rem;
     }
+
     .arrow-down-open {
         color: #fff;
     }
@@ -534,6 +537,7 @@ form .form-submit{
         display: flex;
         align-items: center;
         width: 170px;
+        height: 49;
         background: #901c1c;
         border-radius: 10px;
         border: none;
@@ -568,13 +572,6 @@ form .form-submit{
         border-radius: 10px 10px 0px 0px;
     }
 
-    .works-sort {
-        display: inline-flex;
-        justify-content: center;
-        margin-left: 2rem;
-        margin-top: 2.5rem;
-        height: auto;
-    }
     .works-sort>p {
         font-size: 1.2rem;
         font-weight: 700;
@@ -664,3 +661,22 @@ form .form-submit{
     }
 
 }
+
+
+/*     nav img{
+        width: 12.5rem;
+    }
+    #ph-profil-header{
+        padding: 1rem;
+    }
+    #ph-name{
+        font-size: 2rem;
+    }
+    #ph-contact{
+        height: 40px;
+    }
+    #box{
+        font-size: 1rem;
+        height: 3rem;
+        width: 14rem;
+    } */
