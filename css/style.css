@@ -21,7 +21,7 @@ header {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 1rem;
     overflow: hidden;
 }
 
@@ -194,6 +194,7 @@ figure:focus{
     body {
         margin: 0;
     }
+
     h1 {
         font-size: 14px;
     }
