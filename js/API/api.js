@@ -1,7 +1,8 @@
 class Api {
     async getData() {
         let url = '/resources/data.json';
-        let response = await fetch(url);
+        let localH = window.location.href.replace("/index.html","")
+        let response = await fetch(localH+url);
         let data = await response.json();
         
         const dataP = [...data.photographers];
