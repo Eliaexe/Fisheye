@@ -12,7 +12,7 @@ class PhotographerHeader {
                     <div id="tagsContainer"> ${photographers[0].tags.map(tag => `<p class="ph-tags">#${tag}</p>`).join(" ")} </div>
                 </div>
                 <button class="focusable" id="ph-contact" title='Contact Me' aria-label="Open the contact form modal">Contactez-moi</button>
-                <img src="/resources/img/portrait/${photographers[0].portrait}" alt="${photographers[0].alt}">
+                <img src="resources/img/portrait/${photographers[0].portrait}" alt="${photographers[0].alt}">
             `
         section.innerHTML = template;
     }
