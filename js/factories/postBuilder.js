@@ -18,13 +18,13 @@ class postFactory {
 
     photoPost(element, photographer){
         let place = document.getElementById(element.id)
-        let image = `<img src="/resources/img/${photographer}/${element.image}" alt="${element.title}" tabindex="-1">`
+        let image = `<img src="resources/img/${photographer}/${element.image}" alt="${element.title}" tabindex="-1">`
         place.innerHTML = image
     }
 
     videoPost(element, photographer){
         let place = document.getElementById(element.id);
-        let video = `<video src="/resources/img/${photographer}/${element.video}" alt="${element.title}" tabindex="-1"></video>`
+        let video = `<video src="resources/img/${photographer}/${element.video}" alt="${element.title}" tabindex="-1"></video>`
         place.innerHTML = video
     }
 
