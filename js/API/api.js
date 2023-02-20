@@ -1,6 +1,6 @@
 class Api {
     async getData() {
-        let url = './resources/data.json';
+        let url = 'resources/data.json';
         let response = await fetch(url);
         let data = await response.json();
         
