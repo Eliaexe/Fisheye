@@ -26,7 +26,7 @@ class Carousel{
         const changeMedia = () => {
             figure.innerHTML = ''
             let media = document.getElementById(this.index).childNodes[0].cloneNode()
-            if (media.nodeName == 'VIDEO') { media.controls = true }
+            if (media.nodeName == 'VIDEO') { media.controls = true; media.tabIndex = 0 }
             let figcaption = document.createElement('figcaption')
             figure.appendChild(media)
             figcaption.setAttribute('id', 'works-lightbox-name')
@@ -87,8 +87,6 @@ class Carousel{
                 document.activeElement.click()
             } else if (e.keyCode == '27') {
                 close.click()
-            } else if (e.keyCode == '9'){
-                console.log(document.activeElement);
             }
         }
     }

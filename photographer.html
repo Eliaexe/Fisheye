@@ -29,8 +29,9 @@
 
 <body>
     <nav>
-        <a href="#" id="homeButton" title="HomePage" aria-label="Link to FishEye HomePage"><img src="resources/logo.png" alt="FishEye Logo"></a>
+        <a href="#" id="homeButton" title="HomePage" tabindex="0" aria-label="Link to FishEye HomePage"><img src="resources/logo.png" alt="FishEye Logo"></a>
     </nav>
+   
     
     <header id="ph-profil-header" aria-label="photographer information"></header>
     <main id="main">
@@ -38,7 +39,7 @@
         <div class="works-sort">
             <p id="sort-text">Trier par</p>
             <div id="sort-wrapper">
-                <button class="button-wrapper" aria-label="Media sort" aria-haspopup="listbox">
+                <button class="button-wrapper" aria-label="press enter to chose how to sort medias" aria-haspopup="listbox">
                     <span id="dropdownBtn" class="sort-btn" aria-haspopup="listbox"></span>
                     <span class="fas fa-chevron-down arrow-down-open" id="dropdownIcon" aria-hidden="true"></span>
                 </button>
@@ -47,7 +48,6 @@
                     <li class="sort focusable" role='option' tabindex="0"></li>
                 </ul>
             </div>             
-            
         </div>
         <section id="ph-works" aria-label="Collection of photographer images">
             <h2 class="invisible">.</h2>
@@ -95,10 +95,6 @@
                 </div>
             </div>
         </div>
-        <!-- BOX -->
-        <div id="box"></div>
-        <!--MODAL-->
-
     </main>
 </body>
 </html>

@@ -13,18 +13,18 @@
     <script defer src="js/factories/homepageBuilder.js"></script>
     <script defer src="js/utils/filter.js"></script>
     <script defer src="js/API/api.js"></script>
-    <title>Fisheye</title>
+    <title>Fisheye - Homepage</title>
 </head>
 
 <body>
     <!-- BANNER -->
-    <header>
+    <header aria-label="Header of the page">
         <a href="index.html" title="HomePage" aria-label="Link to FishEye HomePage"><img src="resources/logo.png" alt="FishEye Logo"></a>
         <!-- NAV -->
         <nav class="filters" aria-label="photographer categories">
-            <ul id="tagsList"></ul>
+            <ul id="tagsList" aria-label="Choose a tag to filter photographers"></ul>
         </nav>
-        <h1>Nos Photographes</h1>
+        <h1 tabindex="0">Nos Photographes</h1>
     </header>
     <main>
         <!-- PHOTOGRAPHERS -->

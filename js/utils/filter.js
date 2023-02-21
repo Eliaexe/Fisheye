@@ -10,7 +10,7 @@ class Filter {
                 const el = e[i];
                 if (!tagsToDisplay.includes(el)) {
                     tagsToDisplay.push(el)
-                tagsContainer.innerHTML += `<li data-filter="${el}" tabindex="0">#${el}</li>`
+                tagsContainer.innerHTML += `<li data-filter="${el}">#${el}</li>`
                 }
             }
         });

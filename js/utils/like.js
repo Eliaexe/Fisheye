@@ -4,12 +4,14 @@ class Like{
         let box = document.getElementById("box")
         let likes = document.createElement("span")
         let prices  = document.createElement("span")
-        likes.innerHTML = like.reduce((partial_sum, a) => partial_sum + a, 0);
-        prices .id = "prices"
+        let likeSum = like.reduce((partial_sum, a) => partial_sum + a, 0);
+        likes.innerHTML = likeSum
+        prices.id = "prices"
         likes.id = "likes"
         box.insertAdjacentElement("afterbegin", prices )
         box.insertAdjacentElement("afterbegin", likes)
         box.innerHTML +='<i class="fas fa-heart" aria-label="likes"></i>'
+        box.attributes[3].value = likeSum + 'likes in total,'
     }
 
     price(data){
@@ -17,6 +19,7 @@ class Like{
         const id = window.location.search.split('id=')[1];
         let photographer = data.photographers.filter(i => i.id == id)
         document.getElementById("prices").innerHTML += (photographer[0].price) + "€/Jour"
+        document.getElementById("box").attributes[3].value += (photographer[0].price) + 'euro per day'
     }
 
     clickLike(){
