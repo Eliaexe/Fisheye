@@ -24,12 +24,15 @@ class Modal{
         let prenom = document.getElementById("first-name");
         let nom = document.getElementById("last-name");
         let email = document.getElementById("email");
+        let messageText = document.getElementById("message")
         let fnErr = document.getElementById("fn-err")
         let lnErr = document.getElementById("ln-err")
         let eErr = document.getElementById("e-err")
+        let mErr = document.getElementById("m-err")
         let submit = document.getElementById("submit")
 
         const firstSecondNamePattern = /^([a-zA-Z ]){2,30}$/;
+        const messagePattern = /^[a-zA-Z0-9]{8,}$/;
         const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
         function controll(pattern, campo, errore) {
@@ -49,6 +52,7 @@ class Modal{
             controll(firstSecondNamePattern,prenom,fnErr)
             controll(firstSecondNamePattern,nom,lnErr)
             controll(emailPattern,email,eErr)
+            controll(messagePattern, messageText, mErr)
             submit.addEventListener('click', () =>{
                 if (document.querySelectorAll(".ok").length == 3){
                     console.log(nom.value, prenom.value, email.value, "message sended")

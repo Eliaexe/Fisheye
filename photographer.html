@@ -39,7 +39,7 @@
         <div class="works-sort">
             <p id="sort-text">Trier par</p>
             <div id="sort-wrapper">
-                <button class="button-wrapper" aria-label="press enter to chose how to sort medias" aria-haspopup="listbox">
+                <button class="button-wrapper focusable" aria-label="press enter to chose how to sort medias" aria-haspopup="listbox">
                     <span id="dropdownBtn" class="sort-btn" aria-haspopup="listbox"></span>
                     <span class="fas fa-chevron-down arrow-down-open" id="dropdownIcon" aria-hidden="true"></span>
                 </button>
@@ -55,7 +55,7 @@
         <div id="form-dialog" class="back-hovered">
             <form action="#" method="POST" id="contact-form" aria-label="The form to contact the photographer">
                 <header aria-label="contact form header">
-                    <div class="headText" id="headForm">
+                    <div tabindex="0" class="headText" id="headForm">
                         <h1 id="form-title">Contactez-moi</h1>
                     </div>
                     <button class="fas fa-times focusTrigger" id="close-form" title="Close form" type="button" aria-label="Exit the contact form"></button>
@@ -63,22 +63,22 @@
                 <!-- FIRST NAME -->
                 <div class="formData" id="fn-err" data-error="Vous devez entrer votre prénom." data-error-visible="false">
                     <label for="first-name" id="label-firstname">Prénom</label>
-                    <input name="first-name" id="first-name" aria-labelledby="label-firstname" placeholder="Antoine">
+                    <input name="first-name" id="first-name" aria-label="enter your name">
                 </div>
                 <!-- LAST NAME -->
                 <div class="formData" id="ln-err" data-error="Vous devez entrer votre nom." data-error-visible="false">
                     <label for="last-name" id="label-lastname">Nom</label>
-                    <input name="last-name" id="last-name" aria-labelledby="label-lastname" placeholder="Dubois">
+                    <input name="last-name" id="last-name" aria-label="enter your surname">
                 </div>
                 <!-- EMAIL -->
                 <div class="formData" id="e-err" data-error="Vous devez entrer un email valide." data-error-visible="false">
                     <label for="email" id="label-email">Email</label>
-                    <input type="email" name="email" id="email" aria-labelledby="label-email" placeholder="exemple@email.com">
+                    <input type="email" name="email" id="email" aria-label="enter your email">
                 </div>
                 <!-- MESSAGE -->
-                <div class="formData" id="m-err" data-error="Vous devez entrer votre message." data-error-visible="false">
-                    <label for="message" id="label-message">Votre message</label>
-                    <textarea name="message" id="message" cols="20" rows="5" aria-labelledby="label-message" placeholder="Bonjour..."></textarea>
+                <div class="formData" id="m-err" data-error="vous devez entrer un message d'au moins 8 caractères." data-error-visible="false">
+                    <label for="message" id="label-message" aria-label="cacca">Votre message</label>
+                    <textarea name="message" id="message" cols="20" rows="5" aria-label="enter your message"></textarea>
                 </div>
                 <!-- SUBMIT -->
                 <button type="button" id="submit" class="form-submit" title="Send" aria-label="submit the contact form">Envoyer</button>
