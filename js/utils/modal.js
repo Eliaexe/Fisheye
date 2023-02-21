@@ -31,17 +31,25 @@ class Modal{
         let mErr = document.getElementById("m-err")
         let submit = document.getElementById("submit")
 
+        let ariaNom = 'enter your name'
+        let ariaPrenom = 'enter your surname'
+        let ariaEmail = 'enter your email'
+        let ariaMessage ='enter your message'
+
+
         const firstSecondNamePattern = /^([a-zA-Z ]){2,30}$/;
         const messagePattern = /^[a-zA-Z0-9]{8,}$/;
         const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-        function controll(pattern, campo, errore) {
+        function controll(pattern, campo, errore, aria) {
             submit.addEventListener('click', () => {
                 errore.setAttribute("data-error-visible", false)
                 if (pattern.test(campo.value)) {
+                    campo.attributes[0].value = aria
                     errore.setAttribute("data-error-visible", false)
                     campo.classList.add("ok")
                 } else {
+                    campo.attributes[0].value = errore.attributes[2].value
                     errore.setAttribute("data-error-visible", true)
                     campo.classList.remove("ok")
                 }
@@ -49,13 +57,14 @@ class Modal{
         }
 
         function check () {
-            controll(firstSecondNamePattern,prenom,fnErr)
-            controll(firstSecondNamePattern,nom,lnErr)
-            controll(emailPattern,email,eErr)
-            controll(messagePattern, messageText, mErr)
+            controll(firstSecondNamePattern,prenom,fnErr,ariaNom)
+            controll(firstSecondNamePattern,nom,lnErr,ariaPrenom)
+            controll(emailPattern,email,eErr,ariaEmail)
+            controll(messagePattern, messageText, mErr, ariaMessage)
             submit.addEventListener('click', () =>{
-                if (document.querySelectorAll(".ok").length == 3){
+                if (document.querySelectorAll(".ok").length == 4){
                     console.log(nom.value, prenom.value, email.value, "message sended")
+                    document.getElementById('close-form').click()
                 }
             })
         }
