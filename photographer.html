@@ -29,17 +29,16 @@
 
 <body>
     <nav>
-        <a href="#" id="homeButton" title="HomePage" tabindex="0" aria-label="Link to FishEye HomePage"><img src="resources/logo.png" alt="FishEye Logo"></a>
+        <a href="#" id="homeButton" title="HomePage" tabindex="0" aria-label="lien vers la page d'accueil"><img src="resources/logo.png" alt="FishEye Logo"></a>
     </nav>
    
-    
-    <header id="ph-profil-header" aria-label="photographer information"></header>
+    <header id="ph-profil-header" aria-label="informations sur le photographe"></header>
     <main id="main">
         <!-- DROPDOWN -->
         <div class="works-sort">
             <p id="sort-text">Trier par</p>
             <div id="sort-wrapper">
-                <button class="button-wrapper focusable" aria-label="press enter to chose how to sort medias" aria-haspopup="listbox">
+                <button class="button-wrapper focusable" aria-label="appuyez sur enter pour choisir dans quel ordre afficher les médias" aria-haspopup="listbox">
                     <span id="dropdownBtn" class="sort-btn" aria-haspopup="listbox"></span>
                     <span class="fas fa-chevron-down arrow-down-open" id="dropdownIcon" aria-hidden="true"></span>
                 </button>
@@ -49,49 +48,49 @@
                 </ul>
             </div>             
         </div>
-        <section id="ph-works" aria-label="Collection of photographer images">
+        <section id="ph-works" aria-label="collections de médias d'artistes">
             <h2 class="invisible">.</h2>
         </section>
         <div id="form-dialog" class="back-hovered">
-            <form action="#" method="POST" id="contact-form" aria-label="The form to contact the photographer">
-                <header aria-label="contact form header">
+            <form action="#" method="POST" id="contact-form" aria-label="le formulaire pour me contacter">
+                <header aria-label="header du formulaire de contact">
                     <div tabindex="0" class="headText" id="headForm">
                         <h1 id="form-title">Contactez-moi</h1>
                     </div>
-                    <button class="fas fa-times focusTrigger" id="close-form" title="Close form" type="button" aria-label="Exit the contact form"></button>
+                    <button class="fas fa-times focusTrigger" id="close-form" title="Close form" type="button" aria-label="fermer le formulaire"></button>
                 </header>
                 <!-- FIRST NAME -->
                 <div class="formData" id="fn-err" data-error="Vous devez entrer votre prénom." data-error-visible="false">
                     <label for="first-name" id="label-firstname">Prénom</label>
-                    <input aria-label="enter your name" name="first-name" id="first-name">
+                    <input aria-label="Insérez votre prenom" name="first-name" id="first-name">
                 </div>
                 <!-- LAST NAME -->
                 <div class="formData" id="ln-err" data-error="Vous devez entrer votre nom." data-error-visible="false">
                     <label for="last-name" id="label-lastname">Nom</label>
-                    <input aria-label="enter your surname" name="last-name" id="last-name">
+                    <input aria-label="Insérez votre nom" name="last-name" id="last-name">
                 </div>
                 <!-- EMAIL -->
                 <div class="formData" id="e-err" data-error="Vous devez entrer un email valide." data-error-visible="false">
                     <label for="email" id="label-email">Email</label>
-                    <input aria-label="enter your email" type="email" name="email" id="email">
+                    <input aria-label="Insérez votre email" type="email" name="email" id="email">
                 </div>
                 <!-- MESSAGE -->
                 <div class="formData" id="m-err" data-error="vous devez entrer un message d'au moins 8 caractères." data-error-visible="false">
                     <label for="message" id="label-message">Votre message</label>
-                    <textarea aria-label="enter your message" name="message" id="message" cols="20" rows="5"></textarea>
+                    <textarea aria-label="Insérez votre message" name="message" id="message" cols="20" rows="5"></textarea>
                 </div>
                 <!-- SUBMIT -->
-                <button type="button" id="submit" class="form-submit" title="Send" aria-label="submit the contact form">Envoyer</button>
+                <button type="button" id="submit" class="form-submit" title="Send" aria-label="envoyer le formulaire">Envoyer</button>
             </form>
         </div>
         <!--LIGHTBOX-->
         <div id="works-lightbox" class="back-hovered" aria-hidden="true" style="display: none;">
             <div id="lightbox-body">
-                <button class="fas fa-times close-lightbox-icon focusTrigger" title="Close dialog" id="close" aria-label="Exit from the image viewer"></button>
+                <button class="fas fa-times close-lightbox-icon focusTrigger" title="Close dialog" id="close" aria-label="Quitter l'image"></button>
                 <div class="media-container">
-                    <button class="fas fa-chevron-left left-arrow-lightbox" title="Previous image" id="back" aria-label="Go to the previus image"></button>
+                    <button class="fas fa-chevron-left left-arrow-lightbox" title="Previous image" id="back" aria-label="media précédente"></button>
                     <figure class="medias" id="figure"></figure>
-                    <button class="fas fa-chevron-right right-arrow-lightbox" title="Next image" id="next" aria-label="Go to the next image"></button>
+                    <button class="fas fa-chevron-right right-arrow-lightbox" title="Next image" id="next" aria-label="media suivante"></button>
                 </div>
             </div>
         </div>

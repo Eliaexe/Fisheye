@@ -7,7 +7,8 @@
             "tags": ["portrait", "events", "travel", "animals"],
             "tagline": "Voir le beau dans le quotidien",
             "price": 400,
-            "portrait": "MimiKeel.jpg"
+            "portrait": "MimiKeel.jpg",
+            "alt": "Photo du visage de Mimi Keel sur un fond bleu clair"
         },
         {
             "name": "Ellie-Rose Wilkens",
@@ -17,7 +18,8 @@
             "tags": ["sports", "architecture"],
             "tagline": "Capturer des compositions complexes",
             "price": 250,
-            "portrait": "EllieRoseWilkens.jpg"
+            "portrait": "EllieRoseWilkens.jpg",
+            "alt": "Photo d'Ellie-Rose Wilkens à l'extérieur"
         },
         {
             "name": "Tracy Galindo",
@@ -27,7 +29,8 @@
             "tags": ["art", "fashion", "events"],
             "tagline": "Photographe freelance",
             "price": 500,
-            "portrait": "TracyGalindo.jpg"
+            "portrait": "TracyGalindo.jpg",
+            "alt": "Photo de profil en noir et blanc de Tracy Galindo"
         },
         {
             "name": "Nabeel Bradford",
@@ -37,7 +40,8 @@
             "tags": ["travel", "portrait"],
             "tagline": "Toujours aller de l'avant",
             "price": 350,
-            "portrait": "NabeelBradford.jpg"
+            "portrait": "NabeelBradford.jpg",
+            "alt": "Photo de Nabeel Bradford regardant la vue depuis une montagne au coucher du soleil"
         },
         {
             "name": "Rhode Dubois",
@@ -47,7 +51,8 @@
             "tags": ["sport", "fashion", "events", "animals"],
             "tagline": "Je crée des souvenirs",
             "price": 275,
-            "portrait": "RhodeDubois.jpg"
+            "portrait": "RhodeDubois.jpg",
+            "alt": "Photo de Rhode Dubois avec un fond noir"
         },
         {
             "name": "Marcel Nikolic",
@@ -57,7 +62,8 @@
             "tags": ["travel", "architecture"],
             "tagline": "Toujours à la recherche de LA photo",
             "price": 300,
-            "portrait": "MarcelNikolic.jpg"
+            "portrait": "MarcelNikolic.jpg",
+            "alt": "Photo en noir et blanc de Marcel Nikolic regardant son appareil photo"
         }
     ],
     "media": [{
@@ -68,7 +74,8 @@
             "tags": ["fashion"],
             "likes": 62,
             "date": "2011-12-08",
-            "price": 55
+            "price": 55,
+            "alt": "mannequin portant des vêtements de sport jaunes à la mode avec des talons blancs devant un terrain de basket"
         },
         {
             "id": 8520927,
@@ -78,7 +85,8 @@
             "tags": ["fashion"],
             "likes": 11,
             "date": "2011-11-06",
-            "price": 55
+            "price": 55,
+            "alt": "mannequin portant un haut à thème végétal et un pantalon légèrement bouffant au milieu de la route sur un pont"
         },
         {
             "id": 9025895,
@@ -88,7 +96,8 @@
             "tags": ["fashion"],
             "likes": 72,
             "date": "2013-08-12",
-            "price": 55
+            "price": 55,
+            "alt": "mannequin portant une robe rayée orange et noire avec une écharpe orange et un sac à main rouge"
         },
         {
             "id": 9275938,
@@ -98,7 +107,8 @@
             "tags": ["events"],
             "likes": 69,
             "date": "2018-02-22",
-            "price": 55
+            "price": 55,
+            "alt": "gazebo décoré de fleurs et de plantes grimpantes devant des chaises et tapis rouge avec des arbres en arrière-plan"
         },
         {
             "id": 2053494,
@@ -108,7 +118,8 @@
             "tags": ["events"],
             "likes": 2,
             "date": "2020-05-25",
-            "price": 55
+            "price": 55,
+            "alt": "Le scintille volano nell'oscurità, illuminando volti felici e creando un'atmosfera festosa e magica."
         },
         {
             "id": 7324238,
@@ -118,7 +129,8 @@
             "tags": ["events"],
             "likes": 33,
             "date": "2019-06-12",
-            "price": 55
+            "price": 55,
+            "alt": "Une fête d'anniversaire élégante et sophistiquée avec une décoration de ballons dorés et des lumières tamisées."
         },
         {
             "id": 8328953,
@@ -128,7 +140,8 @@
             "tags": ["art"],
             "likes": 24,
             "date": "2011-12-08",
-            "price": 100
+            "price": 100,
+            "alt": "Sculpture d'un cheval réalisée avec différentes pièces de bois moulées"
         },
         {
             "id": 7502053,
@@ -138,7 +151,8 @@
             "tags": ["art"],
             "likes": 88,
             "date": "2007-05-07",
-            "price": 55
+            "price": 55,
+            "alt": "Un homme en triangle de lumière bleue, debout dans un espace sombre et futuriste, crée une image frappante et intrigante."
         },
         {
             "id": 8523492,
@@ -148,7 +162,8 @@
             "tags": ["art"],
             "likes": 24,
             "date": "2018-05-05",
-            "price": 55
+            "price": 55,
+            "alt": "passage souterrain avec graffitis et lumières légèrement violettes"
         },
         {
             "id": 75902334,
@@ -158,7 +173,8 @@
             "tags": ["art"],
             "likes": 75,
             "date": "2019-11-25",
-            "price": 55
+            "price": 55,
+            "alt": "dessin d'oiseaux jaunes et rouges en 2 dimensions"
         },
 
         {
@@ -169,7 +185,8 @@
             "tags": ["sport"],
             "likes": 52,
             "date": "2013-02-30",
-            "price": 70
+            "price": 70,
+            "alt": "vue de dessus de 5 personnes ramant sur un espace vide"
         },
         {
             "id": 92758372,
@@ -179,7 +196,8 @@
             "tags": ["fashion"],
             "likes": 58,
             "date": "2018-07-17",
-            "price": 70
+            "price": 70,
+            "alt": "un mannequin noir dans une robe bleue sans manches levant la main gauche tandis que derrière c'est un mannequin blanc dans une robe beige levant la main droite"
         },
         {
             "id": 32958383,
@@ -189,7 +207,8 @@
             "tags": ["fashion"],
             "likes": 11,
             "date": "2019-08-12",
-            "price": 70
+            "price": 70,
+            "alt": "le mannequin porte une robe rouge avec une jupe alors qu'elle descend les escaliers d'un petit village"
         },
         {
             "id": 928587383,
@@ -199,7 +218,8 @@
             "tags": ["events"],
             "likes": 2,
             "date": "2019-01-02",
-            "price": 70
+            "price": 70,
+            "alt": "Des hommes d'affaires en costume écoutent attentivement un discours sur scène lors d'une conférence de lancement d'entreprise, avec des panneaux éclairés en arrière-plan."
         },
         {
             "id": 725639493,
@@ -209,7 +229,8 @@
             "tags": ["events"],
             "likes": 3,
             "date": "2019-05-20",
-            "price": 70
+            "price": 70,
+            "alt": ""
         },
         {
             "id": 23394384,
@@ -219,7 +240,8 @@
             "tags": ["events"],
             "likes": 52,
             "date": "2019-07-18",
-            "price": 70
+            "price": 70,
+            "alt": "Un entrepreneur passionné présentant son produit lors d'un pitch devant un public attentif, avec un écran géant en arrière-plan affichant des graphiques et des données."
         },
         {
             "id": 87367293,
@@ -229,7 +251,8 @@
             "tags": ["events"],
             "likes": 23,
             "date": "2018-02-22",
-            "price": 70
+            "price": 70,
+            "alt": "Un maître de cérémonie souriant anime une conférence, tenant un micro."
         },
         {
             "id": 593834784,
@@ -239,7 +262,8 @@
             "tags": ["animals"],
             "likes": 52,
             "date": "2017-03-13",
-            "price": 70
+            "price": 70,
+            "alt": "cerf regardant dans la direction du photographe pendant un coucher de soleil"
         },
         {
             "id": 83958935,
@@ -249,7 +273,8 @@
             "tags": ["animals"],
             "likes": 52,
             "date": "2016-06-12",
-            "price": 70
+            "price": 70,
+            "alt": "chien en laisse jouant sur la plage"
         },
 
         {
@@ -260,7 +285,8 @@
             "tags": ["travel"],
             "likes": 23,
             "date": "2017-03-18",
-            "price": 45
+            "price": 45,
+            "alt": "prise de vue vidéo du sommet d'une montagne escarpée"
         },
         {
             "id": 343423425,
@@ -270,7 +296,8 @@
             "tags": ["travel"],
             "likes": 101,
             "date": "2017-04-03",
-            "price": 45
+            "price": 45,
+            "alt": "personnes se baignant dans une source chaude en plein air"
         },
         {
             "id": 73434243,
@@ -280,7 +307,8 @@
             "tags": ["travel"],
             "likes": 99,
             "date": "2018-04-30",
-            "price": 45
+            "price": 45,
+            "alt": "Une route sinueuse s'enfonce dans une colline verdoyante et luxuriante, offrant une vue imprenable sur la nature environnante et invitant à l'aventure."
         },
         {
             "id": 23425523,
@@ -290,7 +318,8 @@
             "tags": ["travel"],
             "likes": 34,
             "date": "2016-04-05",
-            "price": 45
+            "price": 45,
+            "alt": "Un pont pittoresque traverse un ruisseau calme et s'enfonce dans une forêt dense et verdoyante, offrant une escapade paisible dans la nature."
         },
         {
             "id": 23134513,
@@ -300,7 +329,8 @@
             "tags": ["travel"],
             "likes": 23,
             "date": "2017-03-18",
-            "price": 45
+            "price": 45,
+            "alt": "Un bateau solitaire se détache sur un lac paisible, offrant un sentiment de liberté et d'aventure pour les esprits nomades."
         },
         {
             "id": 92352352,
@@ -310,7 +340,8 @@
             "tags": ["portrait"],
             "likes": 66,
             "date": "2018-05-24",
-            "price": 45
+            "price": 45,
+            "alt": "Bellissima ragazza con capelli rossi e lentiggini sorride"
         },
         {
             "id": 34513453,
@@ -320,7 +351,8 @@
             "tags": ["portait"],
             "likes": 52,
             "date": "2017-04-21",
-            "price": 45
+            "price": 45,
+            "alt": "photo en noir et blanc d'un garçon mulâtre sur fond noir"
         },
         {
             "id": 23523533,
@@ -330,7 +362,8 @@
             "tags": ["portait"],
             "likes": 95,
             "date": "2018-11-02",
-            "price": 45
+            "price": 45,
+            "alt": "photo en noir et blanc d'une fille noire aux cheveux et sourcils blonds"
         },
         {
             "id": 525834234,
@@ -340,7 +373,8 @@
             "tags": ["portait"],
             "likes": 25,
             "date": "2019-01-02",
-            "price": 45
+            "price": 45,
+            "alt": "photo en noir et blanc d'un homme tenant une cigarette"
         },
 
         {
@@ -351,7 +385,8 @@
             "tags": ["travel"],
             "likes": 88,
             "date": "2019-02-03",
-            "price": 45
+            "price": 45,
+            "alt": "paysage forestier éclairé par les rayons du soleil traversant les nuages"
         },
         {
             "id": 625025343,
@@ -361,7 +396,8 @@
             "tags": ["travel"],
             "likes": 85,
             "date": "2019-04-03",
-            "price": 45
+            "price": 45,
+            "alt": "maisons colorées devant une côte rocheuse"
         },
         {
             "id": 2525345343,
@@ -371,7 +407,8 @@
             "tags": ["portait"],
             "likes": 34,
             "date": "2019-04-07",
-            "price": 45
+            "price": 45,
+            "alt": "photo en noir et blanc d'une petite fille tenant sa tête dans ses mains"
         },
         {
             "id": 2523434634,
@@ -381,7 +418,8 @@
             "tags": ["portait"],
             "likes": 63,
             "date": "2019-04-07",
-            "price": 45
+            "price": 45,
+            "alt": "fille noire assise sur une chaise rouge avec une enseigne au néon au-dessus"
         },
         {
             "id": 398847109,
@@ -391,7 +429,8 @@
             "tags": ["portait"],
             "likes": 55,
             "date": "2019-06-20",
-            "price": 45
+            "price": 45,
+            "alt": "photo noir et blanc d'une fille sur fond noir"
         },
         {
             "id": 2534342,
@@ -401,7 +440,8 @@
             "tags": ["events"],
             "likes": 25,
             "date": "2019-06-21",
-            "price": 45
+            "price": 45,
+            "alt": "table joliment dressée sur la plage"
         },
         {
             "id": 65235234,
@@ -411,7 +451,8 @@
             "tags": ["events"],
             "likes": 52,
             "date": "2019-06-25",
-            "price": 45
+            "price": 45,
+            "alt": "des conjoints qui se regardent intensément en se tenant dans leurs bras"
         },
         {
             "id": 23523434,
@@ -421,7 +462,8 @@
             "tags": ["events"],
             "likes": 77,
             "date": "2019-06-28",
-            "price": 45
+            "price": 45,
+            "alt": "les mariés se regardent intensément alors qu'ils s'embrassent dans le parc"
         },
         {
             "id": 5234343,
@@ -431,7 +473,8 @@
             "tags": ["animals"],
             "likes": 142,
             "date": "2019-08-23",
-            "price": 60
+            "price": 60,
+            "alt": "immense troupeau de chevaux se déplaçant"
         },
         {
             "id": 95234343,
@@ -441,7 +484,8 @@
             "tags": ["animals"],
             "likes": 59,
             "date": "2019-07-02",
-            "price": 60
+            "price": 60,
+            "alt": "oiseau avec des plumes de différentes couleurs pastel"
         },
 
         {
@@ -452,7 +496,8 @@
             "tags": ["travel"],
             "likes": 25,
             "date": "2019-04-03",
-            "price": 60
+            "price": 60,
+            "alt": "rue piétonne dans un quartier typiquement japonais avec une tour à l'horizon"
         },
         {
             "id": 2523434,
@@ -462,7 +507,8 @@
             "tags": ["travel"],
             "likes": 53,
             "date": "2019-05-06",
-            "price": 60
+            "price": 60,
+            "alt": "canaux de venise"
         },
         {
             "id": 95293534,
@@ -472,7 +518,8 @@
             "tags": ["travel"],
             "likes": 33,
             "date": "2019-05-12",
-            "price": 60
+            "price": 60,
+            "alt": "grand lac en région boisée et montagneuse"
         },
         {
             "id": 356234343,
@@ -482,7 +529,8 @@
             "tags": ["travel"],
             "likes": 53,
             "date": "2019-06-20",
-            "price": 60
+            "price": 60,
+            "alt": "vélo appuyé contre la main courante d'un escalier à paris"
         },
         {
             "id": 235234343,
@@ -492,7 +540,8 @@
             "tags": ["travel"],
             "likes": 63,
             "date": "2019-06-26",
-            "price": 60
+            "price": 60,
+            "alt": "Paysage indien vu de l'intérieur d'une salle ancienne"
         },
         {
             "id": 6234234343,
@@ -502,7 +551,8 @@
             "tags": ["architecture"],
             "likes": 52,
             "date": "2019-06-30",
-            "price": 60
+            "price": 60,
+            "alt": "dôme d'un édifice religieux"
         },
         {
             "id": 6525666253,
@@ -512,7 +562,8 @@
             "tags": ["architecture"],
             "likes": 63,
             "date": "2019-07-20",
-            "price": 60
+            "price": 60,
+            "alt": "village construit sur une colline au tibet"
         },
         {
             "id": 98252523433,
@@ -522,7 +573,8 @@
             "tags": ["architecture"],
             "likes": 88,
             "date": "2020-01-05",
-            "price": 60
+            "price": 60,
+            "alt": "tour de Pise"
         },
         {
             "id": 9259398453,
@@ -532,7 +584,8 @@
             "tags": ["architecture"],
             "likes": 57,
             "date": "2020-01-20",
-            "price": 65
+            "price": 65,
+            "alt": "vidéo aérienne d'une intersection d'autoroute"
         },
         {
             "id": 3523523534,
@@ -542,7 +595,8 @@
             "tags": ["architecture"],
             "likes": 54,
             "date": "2020-05-05",
-            "price": 60
+            "price": 60,
+            "alt": "bâtiment d'angle et ciel bleu"
         },
 
         {
@@ -553,7 +607,8 @@
             "tags": ["sport"],
             "likes": 150,
             "date": "2018-02-30",
-            "price": 70
+            "price": 70,
+            "alt": "athlète sautant en l'air avec une corde attachée au plafond"
         },
         {
             "id": 235234343,
@@ -563,7 +618,8 @@
             "tags": ["sport"],
             "likes": 101,
             "date": "2018-03-05",
-            "price": 65
+            "price": 65,
+            "alt": "fille escaladant une paroi rocheuse"
         },
         {
             "id": 235343222,
@@ -573,7 +629,8 @@
             "tags": ["sport"],
             "likes": 103,
             "date": "2018-03-10",
-            "price": 70
+            "price": 70,
+            "alt": "garçon surf"
         },
         {
             "id": 7775342343,
@@ -583,7 +640,8 @@
             "tags": ["sport"],
             "likes": 77,
             "date": "2018-04-16",
-            "price": 50
+            "price": 50,
+            "alt": "skieur faisant un saut"
         },
         {
             "id": 9253445784,
@@ -593,7 +651,8 @@
             "tags": ["sport"],
             "likes": 88,
             "date": "2018-04-22",
-            "price": 65
+            "price": 65,
+            "alt": "course d'athlétisme féminin"
         },
         {
             "id": 22299394,
@@ -603,7 +662,8 @@
             "tags": ["sport"],
             "likes": 95,
             "date": "2018-04-27",
-            "price": 70
+            "price": 70,
+            "alt": "patineur faisant des cascades"
         },
         {
             "id": 3452342633,
@@ -613,7 +673,8 @@
             "tags": ["architecture"],
             "likes": 52,
             "date": "2018-05-03",
-            "price": 75
+            "price": 75,
+            "alt": "toit en verre d'un grand bâtiment blanc rond"
         },
         {
             "id": 939234243,
@@ -623,7 +684,8 @@
             "tags": ["architecture"],
             "likes": 55,
             "date": "2018-05-10",
-            "price": 72
+            "price": 72,
+            "alt": "bâtiment qui prend la forme d'une vague"
         },
         {
             "id": 222959233,
@@ -633,7 +695,8 @@
             "tags": ["architecture"],
             "likes": 85,
             "date": "2018-05-15",
-            "price": 71
+            "price": 71,
+            "alt": "photos en noir et blanc de grands bâtiments en forme de fer à cheval"
         },
         {
             "id": 965933434,
@@ -643,7 +706,8 @@
             "tags": ["architecture"],
             "likes": 66,
             "date": "2018-05-20",
-            "price": 58
+            "price": 58,
+            "alt": "vue du ciel entre deux bâtiments en verre orange"
         },
         {
             "id": 777723343,
@@ -653,7 +717,8 @@
             "tags": ["architecture"],
             "likes": 79,
             "date": "2018-05-21",
-            "price": 80
+            "price": 80,
+            "alt": "bâtiment clair avec construit avec un trou au centre"
         }
     ]
 }

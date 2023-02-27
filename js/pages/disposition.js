@@ -27,6 +27,7 @@ class Disposition{
                     flash.innerHTML = ''
                 new postFactory().bulidingPost(items);        
                 new Carousel().init();
+                new Like().clickLike();
             })
         })
         return items

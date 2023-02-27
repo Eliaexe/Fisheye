@@ -31,14 +31,14 @@ class Modal{
         let mErr = document.getElementById("m-err")
         let submit = document.getElementById("submit")
 
-        let ariaNom = 'enter your name'
-        let ariaPrenom = 'enter your surname'
-        let ariaEmail = 'enter your email'
-        let ariaMessage ='enter your message'
+        let ariaNom = 'Insérez votre nom'
+        let ariaPrenom = 'Insérez votre prenom'
+        let ariaEmail = 'Insérez votre email'
+        let ariaMessage ='Insérez votre message'
 
 
         const firstSecondNamePattern = /^([a-zA-Z ]){2,30}$/;
-        const messagePattern = /^[a-zA-Z0-9]{8,}$/;
+        const messagePattern = /^(?=.*\S).{8,}$/;
         const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
         function controll(pattern, campo, errore, aria) {

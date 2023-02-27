@@ -30,7 +30,7 @@ class Carousel{
             let figcaption = document.createElement('figcaption')
             figure.appendChild(media)
             figcaption.setAttribute('id', 'works-lightbox-name')
-            figcaption.innerText = document.getElementById(this.index).childNodes[0].cloneNode().getAttribute("alt") 
+            figcaption.innerText = document.getElementById(this.index).getAttribute('data-name') 
             figure.appendChild(figcaption)
         }
 
@@ -73,11 +73,15 @@ class Carousel{
         next.addEventListener("click", () => { handleGoNext() })
         close.addEventListener("click", () => { handleExit() })
 
-        // KEYBOARD NAVIGATION
+        this.handleKeyNav()
+    }
+
+    // KEYBOARD NAVIGATION
+    handleKeyNav(){
         document.onkeydown = checkKey;
         function checkKey(e) {
             e = e || window.event;
-
+            console.log(e.keyCode);
             if (e.keyCode == '38' || e.keyCode == '39' ) {
                 next.click()
             }

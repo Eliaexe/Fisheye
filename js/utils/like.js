@@ -19,7 +19,7 @@ class Like{
         const id = window.location.search.split('id=')[1];
         let photographer = data.photographers.filter(i => i.id == id)
         document.getElementById("prices").innerHTML += (photographer[0].price) + "€/Jour"
-        document.getElementById("box").attributes[3].value += (photographer[0].price) + 'euro per day'
+        document.getElementById("box").attributes[3].value += (photographer[0].price) + 'euros par jour'
     }
 
     clickLike(){
